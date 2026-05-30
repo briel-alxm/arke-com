@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARKE Deployments · BrielOS</title>
+<link rel="stylesheet" href="design-system/colors_and_type.css">
+<link rel="stylesheet" href="design-system/brielos-com.css">
+<style>
+  /* Page-local refinements ----------------------------------- */
+  .bc-app { display: flex; flex-direction: column; min-height: 100vh; }
+  main { flex: 1 0 auto; }
+
+  /* Hero is editorial (left-aligned, 2-col rail) on this page */
+  .bc-hero--editorial {
+    padding: 110px 0 70px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .bc-hero--editorial .bc-container {
+    display: grid; grid-template-columns: 160px 1fr; gap: 60px;
+  }
+  .bc-hero-eyebrow {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--oxide-copper); margin: 0 0 26px;
+  }
+  .bc-hero-title-editorial {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(40px, 5vw, 60px); line-height: 1.08;
+    letter-spacing: -0.015em; color: var(--obsidian-ink);
+    margin: 0 0 22px; max-width: 760px;
+  }
+  .bc-hero-title-editorial em { font-style: italic; color: var(--storm-teal); font-weight: 400; }
+  .bc-hero-lead-editorial {
+    font-family: var(--font-serif); font-style: italic; font-weight: 300;
+    font-size: 21px; line-height: 1.7; color: var(--iron-slate);
+    max-width: 640px; margin: 0 0 28px;
+  }
+  .bc-hero-meta {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ash-mauve); padding-top: 22px;
+    border-top: 1px solid var(--rule);
+    display: flex; flex-wrap: wrap; gap: 28px;
+  }
+  .bc-hero-meta span { color: var(--soft-graphite); }
+  .bc-hero-meta b {
+    color: var(--ether-gold); font-weight: 600;
+    margin-right: 8px;
+  }
+
+  /* Deployment grids — 2 columns instead of the kit default 3 */
+  .bc-deploy-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+    margin-top: 8px;
+  }
+  @media (max-width: 820px) {
+    .bc-deploy-grid { grid-template-columns: 1fr; }
+    .bc-hero--editorial .bc-container,
+    .bc-section > .bc-container { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  /* Principle line — ceremonial em-dashed pull-quote */
+  .bc-principle {
+    font-family: var(--font-serif); font-style: italic; font-weight: 300;
+    font-size: 22px; line-height: 1.6; color: var(--ether-gold);
+    border-left: 1px solid var(--ether-gold);
+    padding: 6px 0 6px 28px;
+    margin: 32px 0 0; max-width: 640px;
+  }
+
+  /* Decision-node-style status rubric below hero */
+  .bc-rubric {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--soft-graphite);
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    display: flex; flex-wrap: wrap; gap: 24px;
+    align-items: center;
+  }
+  .bc-rubric .dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 999px;
+    background: var(--deep-forest); margin-right: 8px; vertical-align: 1px;
+  }
+  .bc-rubric .dot--coming { background: var(--oxide-copper); }
+  .bc-rubric .sep { color: var(--ash-mauve); opacity: 0.6; }
+
+  /* Slightly larger glyph used on this page, brand-coloured per status */
+  .bc-arke-card { padding: 40px 32px 32px; }
+  .bc-arke-card .bc-arke-icon { color: var(--deep-forest); }
+  .bc-arke-card.is-coming .bc-arke-icon { color: var(--oxide-copper); }
+  .bc-arke-card .bc-glyph { width: 46px; height: 46px; }
+
+  /* Sub-section heading sits above the deploy grid */
+  .bc-subhead {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin: 8px 0 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .bc-subhead-title {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: 26px; color: var(--obsidian-ink); margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .bc-subhead-meta {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ash-mauve);
+  }
+
+  /* CTA on this page sits on alt surface */
+  .bc-cta--framed {
+    margin: 0; padding: 96px 0;
+    background: var(--bone-white-2);
+    border-top: 1px solid var(--rule);
+  }
+  .bc-cta--framed .bc-container {
+    max-width: 760px; text-align: center;
+  }
+  .bc-cta-eyebrow {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ether-gold); margin: 0 0 22px;
+  }
+</style>
+</head>
+<body>
+<div class="bc-app">
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="bc-header" data-screen-label="01 Header">
+    <div class="bc-container bc-header-row">
+      <a class="bc-logo" href="https://www.brielos.com/">
+        <span class="bc-logo-mark">◆</span>
+        <span class="bc-logo-word">BRIELOS</span>
+      </a>
+      <nav class="bc-nav">
+        <a class="bc-nav-link" href="https://www.brielos.com/">Home</a>
+        <a class="bc-nav-link" href="https://www.brielos.com/brielos_doctrine_methodology.html">Doctrine</a>
+        <a class="bc-nav-link is-active" href="https://www.brielos.com/brielos_deployments.html">Deployments</a>
+        <a class="bc-nav-link" href="/cdn-cgi/l/email-protection#5e363b3232311e3c2c373b322d2a2c3f2a3b39373b2d703d3133">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero (editorial rail) ──────────────────────────── -->
+    <section class="bc-hero--editorial" data-screen-label="02 Hero">
+      <div class="bc-container">
+        <aside class="bc-section-rail">
+          <div class="bc-section-num">§ 01</div>
+          <div class="bc-section-num-label">ARKE · Deployments</div>
+        </aside>
+        <div>
+          <p class="bc-hero-eyebrow">REF: ARKE_DEPLOYMENTS // SYSTEMS_OVERVIEW</p>
+          <h1 class="bc-hero-title-editorial">Four systems. <em>One architecture.</em></h1>
+          <p class="bc-hero-lead-editorial">
+            ARKE is deployed across three operational domains — intake qualification, channel partner infrastructure, and job dispatch. Each system operates independently. All three share the same structural logic.
+          </p>
+          <p class="bc-principle">— When you fix the architecture, clarity follows.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Status rubric ─────────────────────────────────── -->
+    <div class="bc-container" style="padding-top: 40px;">
+      <div class="bc-rubric">
+        <span><span class="dot"></span>Live · 02</span>
+        <span class="sep">|</span>
+        <span><span class="dot dot--coming"></span>Coming · 02</span>
+        <span class="sep">|</span>
+        <span>Doctrine — Clear Signal Design™</span>
+        <span class="sep">|</span>
+        <span>Built on — BrielOS</span>
+      </div>
+    </div>
+
+    <!-- ── Live Deployments ───────────────────────────────── -->
+    <section class="bc-section" data-screen-label="03 Live Deployments" style="border-bottom: 1px solid var(--rule);">
+      <div class="bc-container">
+        <aside class="bc-section-rail">
+          <div class="bc-section-num">§ 02</div>
+          <div class="bc-section-num-label">In operation</div>
+        </aside>
+        <div class="bc-section-body" style="max-width: none;">
+          <div class="bc-subhead">
+            <h2 class="bc-subhead-title">Live</h2>
+            <span class="bc-subhead-meta">02 / Deployed</span>
+          </div>
+
+          <div class="bc-deploy-grid">
+
+            <!-- ARKE | Law -->
+            <a href="https://www.brielos.com/brielos_deployments.html#law" class="bc-arke-card" style="text-decoration: none; color: inherit;">
+              <span class="bc-badge bc-badge-live">
+                <span class="bc-badge-dot"></span>Live
+              </span>
+              <div class="bc-arke-icon">
+                <svg class="bc-glyph" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="18" x2="24" y2="18"/>
+                  <line x1="28" y1="18" x2="40" y2="18"/>
+                  <line x1="26" y1="8"  x2="26" y2="40"/>
+                  <line x1="12" y1="18" x2="26" y2="8"/>
+                  <line x1="40" y1="18" x2="26" y2="8"/>
+                  <line x1="20" y1="40" x2="32" y2="40"/>
+                  <line x1="6"  y1="28" x2="18" y2="28"/>
+                  <line x1="34" y1="28" x2="46" y2="28"/>
+                </svg>
+              </div>
+              <h3 class="bc-arke-title">ARKE <span style="color: var(--ash-mauve); font-weight: 400;">|</span> Law</h3>
+              <div class="bc-arke-sub">Case Intake Qualification</div>
+              <p class="bc-arke-desc">
+                Transforms raw intake into a prioritized pipeline. Cases auto-score for urgency, complexity, and revenue potential. Staff review qualified matters — noise is eliminated before human review.
+              </p>
+              <span class="bc-arke-link">
+                <span>Request Demo →</span>
+              </span>
+            </a>
+
+            <!-- ARKE | Partner -->
+            <a href="https://arke.systems/partner/" class="bc-arke-card" style="text-decoration: none; color: inherit;">
+              <span class="bc-badge bc-badge-live">
+                <span class="bc-badge-dot"></span>Live
+              </span>
+              <div class="bc-arke-icon">
+                <svg class="bc-glyph" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- left diamond -->
+                  <path d="M 16 26 L 26 16 L 36 26 L 26 36 Z"/>
+                  <!-- intersecting cross axes -->
+                  <line x1="6"  y1="26" x2="16" y2="26"/>
+                  <line x1="36" y1="26" x2="46" y2="26"/>
+                  <line x1="26" y1="6"  x2="26" y2="16"/>
+                  <line x1="26" y1="36" x2="26" y2="46"/>
+                  <!-- nodes -->
+                  <circle cx="6"  cy="26" r="1.6" fill="currentColor"/>
+                  <circle cx="46" cy="26" r="1.6" fill="currentColor"/>
+                  <circle cx="26" cy="6"  r="1.6" fill="currentColor"/>
+                  <circle cx="26" cy="46" r="1.6" fill="currentColor"/>
+                </svg>
+              </div>
+              <h3 class="bc-arke-title">ARKE <span style="color: var(--ash-mauve); font-weight: 400;">|</span> Partner</h3>
+              <div class="bc-arke-sub">Channel Partner Infrastructure</div>
+              <p class="bc-arke-desc">
+                Partner dashboards and collaborative intelligence tools for reseller networks. Enables partners to operate autonomously at scale — without expanding central operations.
+              </p>
+              <span class="bc-arke-link">
+                <span>Explore Pilot →</span>
+              </span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Coming Soon ────────────────────────────────────── -->
+    <section class="bc-section bc-section--alt" data-screen-label="04 Coming Soon">
+      <div class="bc-container">
+        <aside class="bc-section-rail">
+          <div class="bc-section-num">§ 03</div>
+          <div class="bc-section-num-label">In deployment</div>
+        </aside>
+        <div class="bc-section-body" style="max-width: none;">
+          <div class="bc-subhead">
+            <h2 class="bc-subhead-title">Coming Soon</h2>
+            <span class="bc-subhead-meta">02 / Pending</span>
+          </div>
+
+          <div class="bc-deploy-grid">
+
+            <!-- ARKE | Bid -->
+            <a href="https://www.brielos.com/brielos_deployments.html#bid" class="bc-arke-card is-coming" style="text-decoration: none; color: inherit;">
+              <span class="bc-badge bc-badge-coming">
+                <span class="bc-badge-dot"></span>Coming Soon
+              </span>
+              <div class="bc-arke-icon">
+                <svg class="bc-glyph" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M 26 8 L 40 20 L 40 32 L 26 44 L 12 32 L 12 20 Z"/>
+                  <line x1="26" y1="20" x2="26" y2="32"/>
+                  <line x1="20" y1="26" x2="32" y2="26"/>
+                </svg>
+              </div>
+              <h3 class="bc-arke-title">ARKE <span style="color: var(--ash-mauve); font-weight: 400;">|</span> Bid</h3>
+              <div class="bc-arke-sub">Estimate Qualification</div>
+              <p class="bc-arke-desc">
+                Scores requests for project value and margin at intake. High-margin work surfaces first. Estimators focus on profitable work — close rate and average project margin improve without headcount increase.
+              </p>
+              <span class="bc-arke-link">
+                <span>Join Waitlist →</span>
+              </span>
+            </a>
+
+            <!-- ARKE | Dispatch -->
+            <a href="https://www.brielos.com/brielos_deployments.html#dispatch" class="bc-arke-card is-coming" style="text-decoration: none; color: inherit;">
+              <span class="bc-badge bc-badge-coming">
+                <span class="bc-badge-dot"></span>Coming Soon
+              </span>
+              <div class="bc-arke-icon">
+                <svg class="bc-glyph" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M 8 26 Q 18 12, 30 22 T 46 26"/>
+                  <path d="M 46 26 L 40 22 M 46 26 L 40 30"/>
+                  <circle cx="8"  cy="26" r="1.8" fill="currentColor"/>
+                  <circle cx="22" cy="18" r="1.8" fill="currentColor"/>
+                  <circle cx="34" cy="26" r="1.8" fill="currentColor"/>
+                </svg>
+              </div>
+              <h3 class="bc-arke-title">ARKE <span style="color: var(--ash-mauve); font-weight: 400;">|</span> Dispatch</h3>
+              <div class="bc-arke-sub">Service Request Routing</div>
+              <p class="bc-arke-desc">
+                Auto-scores service requests for urgency and dispatch priority. Routes jobs to technicians by geography, skill, and availability. Completed work per technician increases — dispatch becomes autonomous.
+              </p>
+              <span class="bc-arke-link">
+                <span>Join Waitlist →</span>
+              </span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How ARKE Works ─────────────────────────────────── -->
+    <section class="bc-section" data-screen-label="05 How ARKE Works">
+      <div class="bc-container">
+        <aside class="bc-section-rail">
+          <div class="bc-section-num">§ 04</div>
+          <div class="bc-section-num-label">How it works</div>
+        </aside>
+        <div class="bc-section-body">
+          <h2 class="bc-h2">One principle. Four implementations.</h2>
+          <p class="bc-lead">
+            Each ARKE system follows the same structural design — <em>eliminate noise at intake, preserve signal, let clarity drive prioritization.</em>
+          </p>
+
+          <div class="bc-method-grid">
+            <div class="bc-method">
+              <div class="bc-method-num">01</div>
+              <h3 class="bc-method-title">Instant Qualification</h3>
+              <p class="bc-method-body">Items score on intake. No manual triage. No committee meetings. Scoring is transparent and repeatable — every decision traces back to the same logic.</p>
+            </div>
+            <div class="bc-method">
+              <div class="bc-method-num">02</div>
+              <h3 class="bc-method-title">Autonomous Routing</h3>
+              <p class="bc-method-body">High-priority work surfaces automatically. Staff attention follows signal, not opinion. Workload distribution becomes structural, not political.</p>
+            </div>
+            <div class="bc-method">
+              <div class="bc-method-num">03</div>
+              <h3 class="bc-method-title">Scalable without Headcount</h3>
+              <p class="bc-method-body">As volume increases, the system's filtering gets sharper. More cases mean better scoring. Better scoring means higher close rates — without adding staff.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────────────────── -->
+    <section class="bc-cta--framed" data-screen-label="06 CTA">
+      <div class="bc-container">
+        <p class="bc-cta-eyebrow">— Next signal</p>
+        <h2 class="bc-h2 bc-cta-title">Ready to deploy structural clarity?</h2>
+        <p class="bc-lead bc-cta-body">
+          Start with a diagnostic conversation. We map your biggest distortion point and show you what's possible when you fix the foundation.
+        </p>
+        <div class="bc-btn-group">
+          <a class="bc-btn" href="/cdn-cgi/l/email-protection#96fef3fafaf9d6f4e4fff3fae5e2e4f7e2f3f1fff3e5b8f5f9fba9e5e3f4fcf3f5e2abd7c4ddd3b3a4a6d2fff7f1f8f9e5e2fff5">Book Diagnostic</a>
+          <a class="bc-btn bc-btn--sec" href="https://arke.systems/systems.html">Explore ARKE Systems</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="bc-footer">
+    <div class="bc-container">
+      <p>© 2026 BRIEL STRATEGIES LLC  ·  BRIELOS  ·  BUILT ON CLEAR SIGNAL DESIGN™</p>
+    </div>
+  </footer>
+
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
