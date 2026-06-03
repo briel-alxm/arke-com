@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coming Soon · ARKE</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Tenor+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
+:root {
+  --obsidian-ink:#111315;--iron-slate:#2B3137;--bone-white:#F4F1EA;
+  --deep-forest:#1F3B34;--storm-teal:#355C63;--ether-gold:#C7A86D;
+  --font-serif:"Cormorant Garamond",Georgia,serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --font-body:"Inter",system-ui,sans-serif;
+  --ease-out:cubic-bezier(0.2,0.6,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;}
+body{background:var(--obsidian-ink);color:var(--bone-white);font-family:var(--font-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--ether-gold);color:var(--obsidian-ink);}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1200px;margin:0 auto;padding:0 56px;}
+@media(max-width:768px){.container{padding:0 24px;}}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:100;padding:20px 0;background:rgba(17,19,21,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.header-row{display:flex;justify-content:space-between;align-items:center;}
+.logo{display:inline-flex;align-items:center;gap:10px;}
+.logo-mark{width:28px;height:28px;background:var(--storm-teal);color:var(--bone-white);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:16px;border-radius:2px;line-height:1;}
+.logo-word{font-family:var(--font-serif);font-weight:600;font-size:19px;letter-spacing:0.08em;color:var(--bone-white);}
+.logo-pipe{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;padding-left:10px;border-left:1px solid #2B3137;margin-left:4px;}
+.nav{display:flex;gap:28px;align-items:center;}
+.nav-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#7A8490;transition:color 200ms;}
+.nav-link:hover{color:var(--bone-white);}
+.nav-link.is-cta{padding:7px 14px;border:1px solid var(--storm-teal);color:var(--storm-teal);border-radius:2px;transition:all 200ms;}
+.nav-link.is-cta:hover{background:var(--storm-teal);color:var(--bone-white);}
+
+/* Main */
+.main{min-height:calc(100vh - 69px);display:flex;align-items:center;position:relative;overflow:hidden;}
+.main::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 55% 50%,rgba(53,92,99,0.08) 0%,transparent 70%);pointer-events:none;}
+.inner{max-width:680px;position:relative;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:28px;font-weight:500;}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--storm-teal);}
+.system-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-weight:600;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;padding:5px 10px;border-radius:2px;background:rgba(199,168,109,0.08);border:1px solid rgba(199,168,109,0.2);color:var(--ether-gold);margin-bottom:20px;}
+.title{font-family:var(--font-serif);font-weight:500;font-size:clamp(38px,5vw,58px);line-height:1.08;letter-spacing:-0.015em;color:var(--bone-white);margin:0 0 8px;}
+.system-name{font-family:var(--font-mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:24px;}
+.lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:19px;line-height:1.75;color:#8A8580;margin:0 0 48px;max-width:560px;}
+.divider{width:48px;height:1px;background:rgba(255,255,255,0.08);margin-bottom:32px;}
+
+/* Waitlist form */
+.waitlist-form{display:flex;flex-direction:column;gap:14px;max-width:460px;}
+.waitlist-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:4px;font-weight:500;}
+.waitlist-row{display:flex;gap:8px;}
+.waitlist-input{flex:1;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;}
+.waitlist-input:focus{border-color:rgba(53,92,99,0.6);}
+.waitlist-input::placeholder{color:#3D444A;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:1px solid var(--storm-teal);background:var(--storm-teal);color:var(--bone-white);font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;transition:all 200ms;border-radius:2px;white-space:nowrap;}
+.btn:hover{background:transparent;color:var(--storm-teal);}
+.form-note{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:#3D444A;}
+.form-status{display:none;font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:12px 14px;border-radius:2px;margin-top:4px;}
+
+/* Back link */
+.back-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;margin-top:40px;transition:color 200ms;}
+.back-link:hover{color:var(--storm-teal);}
+
+/* Footer */
+.site-footer{background:#0A0C0E;padding:28px 0;border-top:1px solid rgba(255,255,255,0.04);}
+.footer-row{display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3D444A;}
+.footer-links{display:flex;gap:24px;}
+.footer-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#3D444A;transition:color 200ms;}
+.footer-link:hover{color:#6F7178;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a class="logo" href="/">
+      <div class="logo-mark">◆</div>
+      <div class="logo-word">ARKE</div>
+      <div class="logo-pipe">Operational Infrastructure</div>
+    </a>
+    <nav class="nav">
+      <a class="nav-link" href="/law">Law</a>
+      <a class="nav-link" href="/partner">Partner</a>
+      <a class="nav-link" href="/bid">Bid</a>
+      <a class="nav-link" href="/dispatch">Dispatch</a>
+      <a class="nav-link is-cta" href="/">Systems →</a>
+    </nav>
+  </div>
+</header>
+
+<div class="main">
+  <div class="container">
+    <div class="inner">
+      <div class="eyebrow">ARKE Systems</div>
+      <div class="system-badge" id="system-badge">In Development</div>
+      <h1 class="title">This system is<br><em style="color:var(--ether-gold);">being built.</em></h1>
+      <div class="system-name" id="system-name"></div>
+      <p class="lead">Full documentation, case studies, and onboarding are in progress. Join the waitlist — we'll reach out when access opens.</p>
+      <div class="divider"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;max-width:860px;margin-top:8px;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:14px;font-weight:500;">Join the Waitlist</div>
+          <p style="font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;line-height:1.8;color:#8A8580;margin:0 0 24px;">Leave your details and we'll reach out when access opens — no spam, one email when it's ready.</p>
+          <div style="font-family:var(--font-body);font-size:13px;line-height:1.8;color:#555C64;">
+            <div style="margin-bottom:8px;">◆ &nbsp;Early access priority</div>
+            <div style="margin-bottom:8px;">◆ &nbsp;One notification when live</div>
+            <div>◆ &nbsp;No commitment required</div>
+          </div>
+        </div>
+        <div>
+          <form id="contact-form" onsubmit="handleSubmit(event)" style="display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Full Name</label>
+              <input type="text" name="name" required placeholder="Your name" style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+            </div>
+            <div>
+              <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Company</label>
+              <input type="text" name="company" placeholder="Your company" style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+            </div>
+            <div>
+              <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Email</label>
+              <input type="email" name="email" required placeholder="your@company.com" style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+            </div>
+            <div>
+              <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Anything useful to know? <span style="color:#3D444A;">(optional)</span></label>
+              <textarea name="message" rows="3" placeholder="Industry, team size, current pain point..." style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;resize:vertical;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'"></textarea>
+            </div>
+            <button type="submit" class="btn" style="align-self:flex-start;">Join Waitlist →</button>
+            <div id="form-status" style="display:none;font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:12px 14px;border-radius:2px;"></div>
+          </form>
+        </div>
+      </div>
+
+      <a class="back-link" href="/">← Back to All Systems</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <div class="footer-brand">© 2026 BRIEL STRATEGIES LLC · ARKE SYSTEMS · CLEAR SIGNAL DESIGN™</div>
+    <div class="footer-links">
+      <a class="footer-link" href="/">Systems</a>
+      <a class="footer-link" href="/law">Law</a>
+      <a class="footer-link" href="/partner">Partner</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Auto-detect which system based on URL param
+const params = new URLSearchParams(window.location.search);
+const system = params.get('from');
+const badge = document.getElementById('system-badge');
+const name = document.getElementById('system-name');
+if (system === 'bid') {
+  badge.textContent = 'ARKE | Bid · Coming Soon';
+  name.textContent = 'Estimate Qualification Infrastructure';
+} else if (system === 'dispatch') {
+  badge.textContent = 'ARKE | Dispatch · Coming Soon';
+  name.textContent = 'Service Request Routing Infrastructure';
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById('form-status');
+  const btn = form.querySelector('button[type="submit"]');
+  const data = new FormData(form);
+  const systemLabel = system === 'bid' ? 'ARKE | Bid Waitlist' : system === 'dispatch' ? 'ARKE | Dispatch Waitlist' : 'ARKE Waitlist';
+  const subject = encodeURIComponent(systemLabel + ' — ' + (data.get('company') || data.get('name')));
+  const body = encodeURIComponent('Name: ' + data.get('name') + '\nCompany: ' + data.get('company') + '\nEmail: ' + data.get('email') + '\n\nMessage:\n' + data.get('message'));
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  window.location.href = 'mailto:helloarke@outlook.com?subject=' + subject + '&body=' + body;
+  setTimeout(function() {
+    status.style.display = 'block';
+    status.style.background = 'rgba(53,92,99,0.15)';
+    status.style.border = '1px solid rgba(53,92,99,0.3)';
+    status.style.color = 'var(--storm-teal)';
+    status.textContent = "✓ You're on the list — we'll reach out when access opens.";
+    btn.textContent = 'Join Waitlist →';
+    btn.disabled = false;
+    form.reset();
+  }, 800);
+}
+</script>
+</body>
+</html>
