@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARKE · Operational Infrastructure</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Tenor+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
+:root {
+  --obsidian-ink:#111315;--iron-slate:#2B3137;--soft-graphite:#4A525A;
+  --bone-white:#F4F1EA;--bone-white-2:#EDE8DE;--vellum:#FAF7F0;
+  --deep-forest:#1F3B34;--storm-teal:#355C63;--lunar-blue:#667A8A;
+  --ash-mauve:#8B7E86;--ether-gold:#C7A86D;--oxide-copper:#9A6A4A;
+  --pale-sage:#C7D1C2;--rule:#DDD9D1;--fg-3:#6F7178;--fg-4:#8A8F96;
+  --font-serif:"Cormorant Garamond",Georgia,serif;
+  --font-sans:"Tenor Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --font-body:"Inter",system-ui,sans-serif;
+  --ease-out:cubic-bezier(0.2,0.6,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--obsidian-ink);color:var(--bone-white);font-family:var(--font-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--ether-gold);color:var(--obsidian-ink);}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;cursor:pointer;border:none;}
+.container{max-width:1200px;margin:0 auto;padding:0 56px;}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:100;padding:22px 0;background:rgba(17,19,21,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.header-row{display:flex;justify-content:space-between;align-items:center;}
+.logo{display:inline-flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none;}
+.logo-mark{width:30px;height:30px;background:var(--storm-teal);color:var(--bone-white);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:17px;border-radius:2px;line-height:1;}
+.logo-word{font-family:var(--font-serif);font-weight:600;font-size:20px;letter-spacing:0.08em;color:var(--bone-white);}
+.logo-pipe{font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;padding-left:12px;border-left:1px solid #2B3137;margin-left:4px;}
+.nav{display:flex;gap:32px;align-items:center;}
+.nav-link{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7A8490;cursor:pointer;transition:color 200ms var(--ease-out);}
+.nav-link:hover{color:var(--bone-white);}
+.nav-link.is-cta{padding:9px 18px;border:1px solid var(--storm-teal);color:var(--storm-teal);transition:all 200ms var(--ease-out);}
+.nav-link.is-cta:hover{background:var(--storm-teal);color:var(--bone-white);}
+
+/* Hero */
+.hero{padding:100px 0 80px;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 800px 500px at 60% 50%,rgba(53,92,99,0.12) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:860px;position:relative;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:28px;font-weight:500;}
+.hero-eyebrow::before{content:"";width:28px;height:1px;background:var(--storm-teal);}
+.hero-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(42px,5.5vw,64px);line-height:1.08;letter-spacing:-0.015em;color:var(--bone-white);margin:0 0 24px;}
+.hero-title em{font-style:italic;color:var(--ether-gold);}
+.hero-lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:19px;line-height:1.75;color:#8A8580;max-width:620px;margin:0 0 44px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* Verticals grid */
+.verticals{padding:80px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.verticals-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:44px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.verticals-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#555C64;}
+.verticals-count{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;color:#555C64;}
+.verticals-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
+@media(max-width:768px){.verticals-grid{grid-template-columns:1fr;}}
+.v-card{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:40px 38px 36px;display:flex;flex-direction:column;position:relative;cursor:pointer;transition:background 300ms var(--ease-out),border-color 300ms var(--ease-out);overflow:hidden;}
+.v-card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--storm-teal);transform:scaleY(0);transform-origin:bottom;transition:transform 300ms var(--ease-out);}
+.v-card:hover{background:#1A1F23;border-color:rgba(53,92,99,0.3);}
+.v-card:hover::after{transform:scaleY(1);}
+.v-card.is-coming{opacity:0.55;cursor:default;}
+.v-card.is-coming:hover{background:#161A1D;border-color:rgba(255,255,255,0.05);}
+.v-card.is-coming:hover::after{transform:scaleY(0);}
+.v-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px;}
+.v-glyph{width:44px;height:44px;color:var(--storm-teal);}
+.v-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-weight:600;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:4px 9px;border-radius:2px;}
+.v-badge-dot{width:5px;height:5px;border-radius:999px;background:currentColor;}
+.v-badge--live{background:rgba(31,59,52,0.3);color:#7ABFA7;}
+.v-badge--coming{background:rgba(154,106,74,0.15);color:var(--oxide-copper);}
+.v-title{font-family:var(--font-serif);font-weight:600;font-size:28px;color:var(--bone-white);margin:0 0 6px;line-height:1.15;}
+.v-sub{font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:18px;font-weight:500;}
+.v-desc{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;flex-grow:1;margin:0 0 28px;}
+.v-footer{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);}
+.v-cta{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--storm-teal);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:color 200ms var(--ease-out),gap 200ms var(--ease-out);}
+.v-card:hover .v-cta{color:var(--ether-gold);gap:12px;}
+.v-meta{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;color:#555C64;}
+
+/* Architecture */
+.arch-strip{padding:72px 0;border-bottom:1px solid rgba(255,255,255,0.06);background:#0E1113;}
+.arch-inner{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;}
+.arch-section-num{font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:0.22em;color:var(--ether-gold);margin-bottom:6px;}
+.arch-section-tag{font-family:var(--font-sans);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ash-mauve);}
+.arch-h2{font-family:var(--font-serif);font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.2;letter-spacing:-0.01em;color:var(--bone-white);margin:0 0 20px;}
+.arch-lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:17px;line-height:1.75;color:#8A8580;margin:0 0 32px;}
+.arch-step{display:grid;grid-template-columns:48px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.arch-step:last-child{border-bottom:none;}
+.arch-step-num{font-family:var(--font-mono);font-weight:600;font-size:13px;color:var(--storm-teal);opacity:0.6;padding-top:2px;letter-spacing:0.1em;}
+.arch-step-title{font-family:var(--font-serif);font-weight:600;font-size:18px;color:var(--bone-white);margin:0 0 8px;line-height:1.3;}
+.arch-step-body{font-family:var(--font-body);font-size:14px;line-height:1.7;color:#6F7178;margin:0;}
+
+/* CTA */
+.cta-section{padding:90px 0;text-align:center;background:var(--deep-forest);position:relative;overflow:hidden;}
+.cta-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 50% 50%,rgba(199,168,109,0.06) 0%,transparent 70%);pointer-events:none;}
+.cta-inner{max-width:640px;margin:0 auto;position:relative;}
+.cta-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:20px;font-weight:500;}
+.cta-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(30px,3.5vw,42px);line-height:1.15;letter-spacing:-0.01em;color:var(--bone-white);margin:0 0 18px;}
+.cta-lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:17px;line-height:1.75;color:rgba(244,241,234,0.6);margin:0 0 36px;}
+.cta-actions{display:flex;gap:14px;justify-content:center;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border:1px solid var(--bone-white);background:var(--bone-white);color:var(--obsidian-ink);font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:all 200ms var(--ease-out);border-radius:2px;text-decoration:none;}
+.btn:hover{background:transparent;color:var(--bone-white);}
+.btn--sec{background:transparent;color:var(--bone-white);border-color:rgba(244,241,234,0.3);}
+.btn--sec:hover{border-color:var(--bone-white);}
+.btn--teal{background:var(--storm-teal);border-color:var(--storm-teal);color:var(--bone-white);}
+.btn--teal:hover{background:transparent;color:var(--storm-teal);}
+
+/* Footer */
+.site-footer{background:#0A0C0E;padding:32px 0;border-top:1px solid rgba(255,255,255,0.04);}
+.footer-row{display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#3D444A;}
+.footer-links{display:flex;gap:28px;}
+.footer-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#3D444A;cursor:pointer;transition:color 200ms var(--ease-out);}
+.footer-link:hover{color:#6F7178;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a class="logo" href="/">
+      <div class="logo-mark">◆</div>
+      <div class="logo-word">ARKE</div>
+      <div class="logo-pipe">Operational Infrastructure</div>
+    </a>
+    <nav class="nav">
+      <a class="nav-link" href="/law">Law</a>
+      <a class="nav-link" href="/partner">Partner</a>
+      <a class="nav-link" href="/bid">Bid</a>
+      <a class="nav-link" href="/dispatch">Dispatch</a>
+      <a class="nav-link is-cta" href="/">Systems →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Clear Signal Design™</div>
+      <h1 class="hero-title">
+        Operational systems<br>
+        that run on <em>signal,</em><br>
+        not effort.
+      </h1>
+      <p class="hero-lead">
+        ARKE deploys vertical infrastructure that eliminates intake noise, qualifies high-value work, and routes decisions autonomously — across law, contracting, field service, and channel networks.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn--teal" href="/law">Explore Systems →</a>
+        <a class="btn btn--sec" href="https://brielos.com">About BrielOS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="verticals">
+  <div class="container">
+    <div class="verticals-header">
+      <span class="verticals-label">Active Deployments</span>
+      <span class="verticals-count">2 live · 2 in development</span>
+    </div>
+    <div class="verticals-grid">
+
+      <a href="/law" class="v-card" style="text-decoration:none;">
+        <div class="v-card-top">
+          <svg class="v-glyph" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="18" x2="24" y2="18"/><line x1="28" y1="18" x2="40" y2="18"/>
+            <line x1="26" y1="8" x2="26" y2="28"/><line x1="12" y1="18" x2="26" y2="8"/>
+            <line x1="40" y1="18" x2="26" y2="8"/><line x1="20" y1="28" x2="32" y2="28"/>
+          </svg>
+          <span class="v-badge v-badge--live"><span class="v-badge-dot"></span>Live</span>
+        </div>
+        <h2 class="v-title">ARKE | Law</h2>
+        <div class="v-sub">Case Intake Qualification</div>
+        <p class="v-desc">Structured intake transforms raw PI leads into a scored, prioritised pipeline. Qualification logic surfaces urgency and case value before a staff member reads a single line.</p>
+        <div class="v-footer">
+          <span class="v-cta">Explore System →</span>
+          <span class="v-meta">PI firms · Charleston region</span>
+        </div>
+      </a>
+
+      <a href="/partner" class="v-card" style="text-decoration:none;">
+        <div class="v-card-top">
+          <svg class="v-glyph" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 16 26 L 26 16 L 36 26 L 26 36 Z"/>
+            <line x1="6" y1="26" x2="16" y2="26"/><line x1="36" y1="26" x2="46" y2="26"/>
+            <line x1="26" y1="6" x2="26" y2="16"/><line x1="26" y1="36" x2="26" y2="46"/>
+            <circle cx="6" cy="26" r="1.6" fill="currentColor"/><circle cx="46" cy="26" r="1.6" fill="currentColor"/>
+            <circle cx="26" cy="6" r="1.6" fill="currentColor"/><circle cx="26" cy="46" r="1.6" fill="currentColor"/>
+          </svg>
+          <span class="v-badge v-badge--live"><span class="v-badge-dot"></span>Live</span>
+        </div>
+        <h2 class="v-title">ARKE | Partner</h2>
+        <div class="v-sub">Channel Partner Infrastructure</div>
+        <p class="v-desc">Partner dashboards and collaborative intelligence tools for reseller networks. Enables channel partners to operate with full autonomy — without expanding the central operations team.</p>
+        <div class="v-footer">
+          <span class="v-cta">Explore System →</span>
+          <span class="v-meta">VAR networks · enterprise</span>
+        </div>
+      </a>
+
+      <a href="/bid" class="v-card is-coming" style="text-decoration:none;">
+        <div class="v-card-top">
+          <svg class="v-glyph" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="14" width="32" height="24" rx="1"/>
+            <line x1="10" y1="22" x2="42" y2="22"/><line x1="20" y1="22" x2="20" y2="38"/>
+            <line x1="16" y1="18" x2="18" y2="18"/><line x1="22" y1="18" x2="24" y2="18"/>
+          </svg>
+          <span class="v-badge v-badge--coming"><span class="v-badge-dot"></span>Coming Soon</span>
+        </div>
+        <h2 class="v-title">ARKE | Bid</h2>
+        <div class="v-sub">Estimate Qualification</div>
+        <p class="v-desc">Request qualification scores project value and margin at intake. High-margin work surfaces first. Estimators spend time on profitable opportunities — without adding headcount.</p>
+        <div class="v-footer">
+          <span class="v-cta">Join Waitlist →</span>
+          <span class="v-meta">GC · specialty trade</span>
+        </div>
+      </a>
+
+      <a href="/dispatch" class="v-card is-coming" style="text-decoration:none;">
+        <div class="v-card-top">
+          <svg class="v-glyph" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="26" cy="26" r="6"/>
+            <line x1="26" y1="8" x2="26" y2="20"/><line x1="26" y1="32" x2="26" y2="44"/>
+            <line x1="8" y1="26" x2="20" y2="26"/><line x1="32" y1="26" x2="44" y2="26"/>
+            <line x1="13" y1="13" x2="21" y2="21"/><line x1="31" y1="31" x2="39" y2="39"/>
+            <line x1="39" y1="13" x2="31" y2="21"/><line x1="21" y1="31" x2="13" y2="39"/>
+          </svg>
+          <span class="v-badge v-badge--coming"><span class="v-badge-dot"></span>Coming Soon</span>
+        </div>
+        <h2 class="v-title">ARKE | Dispatch</h2>
+        <div class="v-sub">Service Request Routing</div>
+        <p class="v-desc">Auto-scores service requests for urgency and dispatch priority. Routes technicians by geography, skill, and availability. Dispatch becomes autonomous — no heroic coordination required.</p>
+        <div class="v-footer">
+          <span class="v-cta">Join Waitlist →</span>
+          <span class="v-meta">Field service · HVAC · facilities</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="arch-strip">
+  <div class="container">
+    <div class="arch-inner">
+      <div>
+        <div class="arch-section-num">§ 01</div>
+        <div class="arch-section-tag">How we build</div>
+      </div>
+      <div>
+        <h2 class="arch-h2">Clear Signal Design™ — one methodology, every vertical.</h2>
+        <p class="arch-lead">All four ARKE systems are implementations of the same doctrine. The domain changes. The structure doesn't.</p>
+        <div>
+          <div class="arch-step"><div class="arch-step-num">01</div><div><h3 class="arch-step-title">Diagnosis — map the distortion</h3><p class="arch-step-body">Every system starts with a structural audit. Where does signal break? Where does noise enter? We map the fracture before we build anything.</p></div></div>
+          <div class="arch-step"><div class="arch-step-num">02</div><div><h3 class="arch-step-title">Distillation — eliminate the noise</h3><p class="arch-step-body">Qualification logic, routing rules, and scoring criteria are built from operational reality. Complexity is a mask for broken architecture. We cut until only the signal remains.</p></div></div>
+          <div class="arch-step"><div class="arch-step-num">03</div><div><h3 class="arch-step-title">Deployment — autonomous operation</h3><p class="arch-step-body">The system runs independently. Personality and manual oversight are engineered out. Decision-making becomes reliable at scale.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-eyebrow">Ready to start</div>
+      <h2 class="cta-title">See the system work.</h2>
+      <p class="cta-lead">ARKE | Law is live and taking intake now. PI firms within 60 miles of Charleston can submit a case for qualification today.</p>
+      <div class="cta-actions">
+        <a class="btn" href="/law">Submit a Case →</a>
+        <a class="btn btn--sec" href="https://brielos.com/contact">Book a Diagnostic</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <div class="footer-brand">© 2026 BRIEL STRATEGIES LLC · ARKE SYSTEMS · CLEAR SIGNAL DESIGN™</div>
+    <div class="footer-links">
+      <a class="footer-link" href="https://brielos.com">BrielOS</a>
+      <a class="footer-link" href="/law">Law</a>
+      <a class="footer-link" href="/partner">Partner</a>
+      <a class="footer-link" href="https://brielos.com/contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
