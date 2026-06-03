@@ -1,0 +1,14 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/law", "destination": "/law/index.html" },
+    { "source": "/partner", "destination": "/partner/index.html" },
+    { "source": "/partner/pilot", "destination": "/partner/pilot/index.html" },
+    { "source": "/partner/advanced", "destination": "/partner/advanced/index.html" },
+    { "source": "/partner/pricing", "destination": "/partner/pricing/index.html" },
+    { "source": "/partner/help", "destination": "/partner/help/index.html" },
+    { "source": "/bid", "destination": "/bid/index.html" },
+    { "source": "/dispatch", "destination": "/dispatch/index.html" }
+  ]
+}
