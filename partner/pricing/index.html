@@ -1,0 +1,438 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing · ARKE | Partner</title>
+<style>@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Tenor+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
+:root {
+  --obsidian-ink:#111315;--iron-slate:#2B3137;--soft-graphite:#4A525A;
+  --bone-white:#F4F1EA;--bone-white-2:#EDE8DE;--vellum:#FAF7F0;
+  --deep-forest:#1F3B34;--storm-teal:#355C63;--lunar-blue:#667A8A;
+  --ash-mauve:#8B7E86;--ether-gold:#C7A86D;--oxide-copper:#9A6A4A;
+  --pale-sage:#C7D1C2;--rule:#DDD9D1;--fg-3:#6F7178;--fg-4:#8A8F96;
+  --font-serif:"Cormorant Garamond",Georgia,serif;
+  --font-sans:"Tenor Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --font-body:"Inter",system-ui,sans-serif;
+  --ease-out:cubic-bezier(0.2,0.6,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--obsidian-ink);color:var(--bone-white);font-family:var(--font-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--ether-gold);color:var(--obsidian-ink);}
+a{color:inherit;text-decoration:none;}
+p{margin:0 0 16px;}
+p:last-child{margin-bottom:0;}
+
+/* ── Layout ── */
+.container{max-width:1200px;margin:0 auto;padding:0 56px;}
+@media(max-width:768px){.container{padding:0 24px;}}
+
+/* ── Header ── */
+.site-header{position:sticky;top:0;z-index:100;padding:20px 0;background:rgba(17,19,21,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.header-row{display:flex;justify-content:space-between;align-items:center;gap:32px;}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.logo-mark{width:28px;height:28px;background:var(--storm-teal);color:var(--bone-white);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:16px;border-radius:2px;line-height:1;}
+.logo-word{font-family:var(--font-serif);font-weight:600;font-size:19px;letter-spacing:0.08em;color:var(--bone-white);}
+.logo-pipe{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;padding-left:10px;border-left:1px solid #2B3137;margin-left:4px;}
+.subnav{display:flex;gap:4px;align-items:center;}
+.subnav-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#7A8490;padding:6px 12px;border-radius:2px;transition:color 200ms,background 200ms;}
+.subnav-link:hover{color:var(--bone-white);}
+.subnav-link.is-active{color:var(--ether-gold);background:rgba(199,168,109,0.08);}
+.subnav-cta{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--storm-teal);padding:6px 14px;border:1px solid var(--storm-teal);border-radius:2px;margin-left:8px;transition:all 200ms;}
+.subnav-cta:hover{background:var(--storm-teal);color:var(--bone-white);}
+
+/* ── Hero ── */
+.page-hero{padding:88px 0 64px;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;}
+.page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 700px 400px at 65% 50%,rgba(53,92,99,0.1) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:800px;position:relative;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;margin-bottom:28px;transition:color 200ms;}
+.back-link:hover{color:var(--storm-teal);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:20px;font-weight:500;}
+.hero-eyebrow::before{content:"";width:24px;height:1px;background:var(--storm-teal);}
+.page-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(38px,5vw,58px);line-height:1.08;letter-spacing:-0.015em;color:var(--bone-white);margin:0 0 20px;}
+.page-title em{font-style:italic;color:var(--ether-gold);}
+.page-lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:18px;line-height:1.8;color:#8A8580;max-width:620px;margin:0 0 36px;}
+.hero-meta{display:flex;gap:0;border:1px solid rgba(255,255,255,0.07);max-width:560px;}
+.hero-meta-item{flex:1;padding:16px 20px;border-right:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;gap:4px;}
+.hero-meta-item:last-child{border-right:none;}
+.hero-meta-item .k{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;}
+.hero-meta-item .v{font-family:var(--font-serif);font-weight:600;font-size:16px;color:var(--bone-white);}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ── Band sections ── */
+.band{padding:64px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.band--alt{background:#0E1113;}
+.band-grid{display:grid;grid-template-columns:200px 1fr;gap:64px;align-items:start;}
+@media(max-width:900px){.band-grid{grid-template-columns:1fr;gap:24px;}}
+.band-rail{padding-top:4px;}
+.band-num{display:block;font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:0.22em;color:var(--ether-gold);margin-bottom:4px;}
+.band-num-label{display:block;font-family:var(--font-sans);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ash-mauve);}
+.band-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(24px,2.8vw,34px);line-height:1.2;letter-spacing:-0.01em;color:var(--bone-white);margin:0 0 20px;}
+.band-title em{font-style:italic;color:var(--ether-gold);}
+.band-lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;line-height:1.8;color:#8A8580;margin:0 0 28px;}
+.band-body p{font-family:var(--font-body);font-size:14px;line-height:1.8;color:#8A8580;}
+.band-body p a,.inline-link{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);transition:color 200ms,border-color 200ms;}
+.band-body p a:hover,.inline-link:hover{color:var(--ether-gold);border-color:rgba(199,168,109,0.4);}
+
+/* ── Workflow steps ── */
+.workflow{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.workflow-step{padding:24px 0 24px 28px;border-left:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.05);position:relative;}
+.workflow-step:last-child{border-bottom:none;}
+.workflow-step::before{content:"";position:absolute;left:-4px;top:28px;width:7px;height:7px;border-radius:999px;background:var(--storm-teal);}
+.workflow-num{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:8px;font-weight:500;}
+.workflow-title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0 0 8px;line-height:1.25;}
+.workflow-body{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;margin:0;}
+.workflow-arrow{font-family:var(--font-mono);font-size:12px;color:var(--storm-teal);}
+
+/* ── Feature grid ── */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:8px;}
+@media(max-width:768px){.feature-grid{grid-template-columns:1fr;}}
+.feature-card{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:32px 28px;display:flex;flex-direction:column;gap:10px;}
+.feature-card .icon{width:40px;height:40px;color:var(--storm-teal);margin-bottom:4px;}
+.feature-card .label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);font-weight:500;}
+.feature-card .title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0;line-height:1.2;}
+.feature-card .body{font-family:var(--font-body);font-size:13px;line-height:1.75;color:#8A8580;margin:0;}
+
+/* ── Fields list ── */
+.fields{margin:0;padding:0;}
+.field-row{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.field-row:last-child{border-bottom:none;}
+.field-name{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bone-white);font-weight:500;padding-top:2px;}
+.field-desc{font-family:var(--font-body);font-size:14px;line-height:1.7;color:#8A8580;margin:0;}
+.field-desc em{font-style:italic;color:var(--fg-4);}
+.fields-note{font-family:var(--font-body);font-size:13px;line-height:1.7;color:#555C64;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);}
+.fields-note a{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);}
+
+/* ── Timeline ── */
+.timeline{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;}
+.timeline-phase{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.timeline-phase:last-child{border-bottom:none;}
+.timeline-meta{display:flex;flex-direction:column;gap:6px;padding-top:2px;}
+.timeline-week{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ether-gold);font-weight:500;}
+.timeline-status{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#555C64;}
+.timeline-status .dot{width:5px;height:5px;border-radius:999px;background:var(--storm-teal);}
+.timeline-title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0 0 8px;line-height:1.2;}
+.timeline-body{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;margin:0;}
+
+/* ── FAQ (flat) ── */
+.faq{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.faq-item{padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-family:var(--font-serif);font-weight:600;font-size:19px;color:var(--bone-white);margin:0 0 10px;line-height:1.3;}
+.faq-a{font-family:var(--font-body);font-size:14px;line-height:1.8;color:#8A8580;}
+.faq-a a{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);}
+
+/* ── Help jump nav ── */
+.help-jump{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px;}
+.help-jump li a{display:grid;grid-template-columns:48px 1fr 24px;align-items:center;gap:16px;padding:16px 18px;background:#161A1D;border:1px solid rgba(255,255,255,0.05);text-decoration:none;transition:background 200ms,border-color 200ms;}
+.help-jump li a:hover{background:#1A1F23;border-color:rgba(53,92,99,0.25);}
+.hj-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--ether-gold);font-weight:500;}
+.hj-title{font-family:var(--font-serif);font-weight:500;font-size:17px;color:var(--bone-white);}
+.hj-arr{font-family:var(--font-mono);font-size:12px;color:#555C64;}
+
+/* ── Feature deep ── */
+.feature-deep{display:grid;grid-template-columns:100px 1fr 240px;gap:36px;align-items:start;padding:32px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.feature-deep:last-child{border-bottom:none;}
+@media(max-width:900px){.feature-deep{grid-template-columns:1fr;}}
+.fd-diagram{width:100px;height:100px;color:var(--storm-teal);opacity:0.7;}
+.fd-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:8px;font-weight:500;}
+.fd-title{font-family:var(--font-serif);font-weight:600;font-size:22px;color:var(--bone-white);margin:0 0 10px;line-height:1.2;}
+.fd-body{font-family:var(--font-body);font-size:14px;line-height:1.8;color:#8A8580;margin:0;}
+.fd-usecase{background:#161A1D;border:1px solid rgba(255,255,255,0.05);border-left:2px solid var(--ether-gold);padding:20px 22px;}
+.uc-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:8px;font-weight:500;}
+.uc-body{font-family:var(--font-body);font-size:13px;line-height:1.75;color:#8A8580;}
+
+/* ── Training path ── */
+.training{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.training-row{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.training-row:last-child{border-bottom:none;}
+.training-when{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ether-gold);font-weight:500;padding-top:2px;}
+.training-text{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;}
+.training-text em{font-style:italic;color:var(--fg-4);}
+
+/* ── Pricing ── */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px;}
+@media(max-width:768px){.pricing-grid{grid-template-columns:1fr;}}
+.price-card{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:36px 32px;display:flex;flex-direction:column;gap:0;}
+.price-card--featured{background:#1A2420;border-color:rgba(53,92,99,0.35);}
+.price-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:10px;font-weight:500;}
+.price-title{font-family:var(--font-serif);font-weight:600;font-size:28px;color:var(--bone-white);margin:0 0 16px;line-height:1.1;}
+.price-amount{font-family:var(--font-serif);font-weight:500;font-size:52px;color:var(--bone-white);line-height:1;letter-spacing:-0.02em;margin-bottom:4px;}
+.price-amount .currency{font-size:28px;vertical-align:top;padding-top:10px;display:inline-block;color:var(--fg-3);}
+.price-unit{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#555C64;margin-bottom:18px;}
+.price-tagline{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:15px;line-height:1.7;color:#8A8580;padding:16px 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);margin-bottom:20px;}
+.price-list{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:8px;}
+.price-list li{font-family:var(--font-body);font-size:13px;line-height:1.6;color:#8A8580;padding-left:16px;position:relative;}
+.price-list li::before{content:"—";position:absolute;left:0;color:var(--storm-teal);font-family:var(--font-mono);}
+.price-cta{margin-top:auto;}
+.price-optional{background:#0E1113;border:1px solid rgba(255,255,255,0.05);border-left:2px solid var(--ether-gold);padding:28px 32px;margin-top:2px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;}
+.po-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:8px;font-weight:500;}
+.po-title{font-family:var(--font-serif);font-weight:600;font-size:22px;color:var(--bone-white);margin:0 0 10px;}
+.po-body{font-family:var(--font-body);font-size:13px;line-height:1.75;color:#8A8580;margin:0;}
+.po-price{font-family:var(--font-serif);font-weight:500;font-size:32px;color:var(--bone-white);white-space:nowrap;text-align:right;flex-shrink:0;}
+.po-price .unit{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#555C64;font-weight:400;}
+
+/* ── Compare table ── */
+.compare{width:100%;border-collapse:collapse;margin-top:8px;font-family:var(--font-body);font-size:13px;}
+.compare thead th{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);}
+.compare thead th:first-child{width:50%;}
+.compare .plan-label{color:var(--bone-white);}
+.compare tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);}
+.compare tbody tr:hover{background:rgba(255,255,255,0.015);}
+.compare tbody th{padding:10px 16px;text-align:left;color:#8A8580;font-weight:400;}
+.compare tbody td{padding:10px 16px;color:#8A8580;text-align:center;}
+.compare .yes{color:var(--storm-teal);font-size:16px;}
+.compare .no{color:#2B3137;}
+.compare .section-row th{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);padding-top:20px;font-weight:500;}
+.compare .section-row td{padding-top:20px;}
+
+/* ── Contact block ── */
+.contact-block{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px;}
+@media(max-width:768px){.contact-block{grid-template-columns:1fr;}}
+.contact-block > div{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:28px 28px;}
+.cb-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:10px;font-weight:500;}
+.cb-title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0 0 10px;line-height:1.3;}
+.cb-body{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;margin:0;}
+.cb-body a{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);}
+
+/* ── Principle band ── */
+.principle-band{padding:48px 0;background:var(--deep-forest);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);}
+.principle-inner{display:flex;align-items:center;gap:20px;max-width:800px;}
+.principle-mark{font-family:var(--font-serif);font-size:20px;color:var(--ether-gold);flex-shrink:0;opacity:0.6;}
+.principle-line{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:20px;line-height:1.65;color:rgba(244,241,234,0.75);margin:0;}
+
+/* ── CTA section ── */
+.cta-section{padding:80px 0;text-align:center;background:var(--deep-forest);position:relative;overflow:hidden;}
+.cta-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 500px 300px at 50% 50%,rgba(199,168,109,0.06) 0%,transparent 70%);pointer-events:none;}
+.cta-inner{max-width:600px;margin:0 auto;position:relative;}
+.cta-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:16px;font-weight:500;}
+.cta-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(28px,3vw,38px);line-height:1.2;color:var(--bone-white);margin:0 0 14px;letter-spacing:-0.01em;}
+.cta-title em{font-style:italic;color:var(--ether-gold);}
+.cta-body{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;line-height:1.75;color:rgba(244,241,234,0.6);margin:0 0 28px;}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-sub{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(244,241,234,0.3);margin-top:16px;}
+
+/* ── Further reading strip ── */
+.further{padding:48px 0;background:#0A0C0E;border-top:1px solid rgba(255,255,255,0.04);}
+.further-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#3D444A;margin-bottom:20px;}
+.further-links{display:flex;gap:2px;}
+.further-link{flex:1;display:flex;flex-direction:column;gap:6px;padding:20px 22px;background:#111315;border:1px solid rgba(255,255,255,0.04);text-decoration:none;transition:background 200ms,border-color 200ms;}
+.further-link:hover{background:#161A1D;border-color:rgba(53,92,99,0.2);}
+.further-link .lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);font-weight:500;}
+.further-link .txt{font-family:var(--font-body);font-size:13px;line-height:1.5;color:#6F7178;}
+.further-link .arr{font-family:var(--font-mono);font-size:11px;color:#3D444A;margin-top:4px;}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border:1px solid var(--bone-white);background:var(--bone-white);color:var(--obsidian-ink);font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:all 200ms;border-radius:2px;text-decoration:none;}
+.btn:hover{background:transparent;color:var(--bone-white);}
+.btn--sec{background:transparent;color:var(--bone-white);border-color:rgba(244,241,234,0.25);}
+.btn--sec:hover{border-color:var(--bone-white);}
+.btn--teal{background:var(--storm-teal);border-color:var(--storm-teal);color:var(--bone-white);}
+.btn--teal:hover{background:transparent;color:var(--storm-teal);}
+.btn-group{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ── Footer ── */
+.site-footer{background:#0A0C0E;padding:28px 0;border-top:1px solid rgba(255,255,255,0.04);}
+.footer-row{display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3D444A;}
+.footer-links{display:flex;gap:24px;}
+.footer-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#3D444A;transition:color 200ms;}
+.footer-link:hover{color:#6F7178;}
+</style>
+</head><body>
+<header class="site-header"><div class="container header-row">
+  <a class="logo" href="https://arke.systems"><div class="logo-mark">◆</div><div class="logo-word">ARKE</div><div class="logo-pipe">Partner</div></a>
+  <nav class="subnav"><a class="subnav-link" href="/partner/">Overview</a><a class="subnav-link" href="/partner/pilot/">Pilot</a><a class="subnav-link is-active" href="/partner/pricing/">Pricing</a><a class="subnav-link" href="/partner/help/">Help</a><a class="subnav-cta" href="/partner/pilot/">Request Pilot →</a></nav>
+</div></header>
+<main>
+<section class="page-hero"><div class="container"><div class="hero-inner">
+  <a class="back-link" href="/partner/">← Partner Overview</a>
+  <div class="hero-eyebrow">ARKE | Partner · Pricing</div>
+  <h1 class="page-title">Transparent pricing. <em>No surprises.</em></h1>
+  <p class="page-lead">Two deployment plans, both one-time fees. Optional ongoing support if you want it. No subscription required to use the system, no per-seat math, no hidden line items.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="k">Pilot</span><span class="v">Free · 4 wks</span></div>
+    <div class="hero-meta-item"><span class="k">Standard</span><span class="v">$3,500</span></div>
+    <div class="hero-meta-item"><span class="k">Premium</span><span class="v">$5,000</span></div>
+    <div class="hero-meta-item"><span class="k">Support</span><span class="v">Optional</span></div>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 01</span><span class="band-num-label">The Plans</span></div>
+  <div class="band-body">
+    <h2 class="band-title">Two paths. <em>Both fully deployed.</em></h2>
+    <p class="band-lead">Standard ships the core architecture. Premium ships the same core plus the advanced layer — vendor management, analytics, automation, risk scoring — configured to your team's actual workflow.</p>
+    <div class="pricing-grid">
+      <article class="price-card">
+        <div class="price-eyebrow">◆ Standard Deployment</div>
+        <h3 class="price-title">Standard.</h3>
+        <div class="price-amount"><span class="currency">$</span>3,500</div>
+        <div class="price-unit">One-time · Per deployment</div>
+        <p class="price-tagline">The core pipeline architecture, configured and shipped — ready for production use on day one.</p>
+        <ul class="price-list">
+          <li>Pipeline, Deal List, Dashboard, Calendar</li>
+          <li>Six-field intake, four-stage workflow</li>
+          <li>White-label configuration with your brand</li>
+          <li>Onboarding session for up to five people</li>
+          <li>Written runbook for your team</li>
+          <li>30 days post-launch support included</li>
+        </ul>
+        <a class="btn price-cta btn--teal" href="/partner/pilot/">Start with the Pilot →</a>
+      </article>
+      <article class="price-card price-card--featured">
+        <div class="price-eyebrow">◆ Premium Deployment</div>
+        <h3 class="price-title">Premium.</h3>
+        <div class="price-amount"><span class="currency">$</span>5,000</div>
+        <div class="price-unit">One-time · Per deployment</div>
+        <p class="price-tagline">Standard, plus the advanced layer — for teams that already know they want vendor and analytics depth from day one.</p>
+        <ul class="price-list">
+          <li>Everything in Standard</li>
+          <li>Vendor Management module</li>
+          <li>Deal Analytics — sizing tiers, win-rate, velocity</li>
+          <li>Automated workflows and escalations</li>
+          <li>Risk Assessment scoring</li>
+          <li>Custom field configuration and integrations</li>
+          <li>Extended onboarding (up to ten people)</li>
+          <li>60 days post-launch support included</li>
+        </ul>
+        <a class="btn price-cta btn--teal" href="/partner/pilot/">Start with the Pilot →</a>
+      </article>
+    </div>
+    <aside class="price-optional">
+      <div>
+        <div class="po-label">◆ Optional · After post-launch support ends</div>
+        <h3 class="po-title">Subscription Support.</h3>
+        <p class="po-body">Ongoing system tuning, quarterly architecture reviews, priority response on issues, and access to new advanced features as they ship. Cancel any month, no notice required.</p>
+      </div>
+      <div class="po-price">$300–$500<span class="unit">per month</span></div>
+    </aside>
+  </div>
+</div></section>
+
+<section class="band band--alt"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 02</span><span class="band-num-label">Compare in Full</span></div>
+  <div class="band-body">
+    <h2 class="band-title">Everything included. <em>Side by side.</em></h2>
+    <table class="compare">
+      <thead><tr><th>Feature</th><th><span class="plan-label">Standard</span></th><th><span class="plan-label">Premium</span></th></tr></thead>
+      <tbody>
+        <tr class="section-row"><th>Core architecture</th><td></td><td></td></tr>
+        <tr><th>Pipeline (Kanban view)</th><td class="yes">●</td><td class="yes">●</td></tr>
+        <tr><th>Deal List (tabular view)</th><td class="yes">●</td><td class="yes">●</td></tr>
+        <tr><th>Dashboard (pipeline health)</th><td class="yes">●</td><td class="yes">●</td></tr>
+        <tr><th>Calendar (follow-ups, renewals)</th><td class="yes">●</td><td class="yes">●</td></tr>
+        <tr><th>Four-stage workflow</th><td class="yes">●</td><td class="yes">●</td></tr>
+        <tr class="section-row"><th>Advanced layer</th><td></td><td></td></tr>
+        <tr><th>Vendor Management</th><td class="no">—</td><td class="yes">●</td></tr>
+        <tr><th>Deal Analytics</th><td class="no">—</td><td class="yes">●</td></tr>
+        <tr><th>Automated Workflows</th><td class="no">—</td><td class="yes">●</td></tr>
+        <tr><th>Risk Assessment scoring</th><td class="no">—</td><td class="yes">●</td></tr>
+        <tr class="section-row"><th>Deployment and brand</th><td></td><td></td></tr>
+        <tr><th>White-label configuration</th><td class="yes">●</td><td class="yes">●</td></tr>
+        <tr><th>Custom field configuration</th><td class="no">—</td><td class="yes">●</td></tr>
+        <tr><th>Integrations with existing tools</th><td class="no">—</td><td class="yes">●</td></tr>
+        <tr class="section-row"><th>Onboarding and support</th><td></td><td></td></tr>
+        <tr><th>Onboarding session</th><td>Up to 5 people</td><td>Up to 10 people</td></tr>
+        <tr><th>Written runbook</th><td class="yes">●</td><td class="yes">●</td></tr>
+        <tr><th>Post-launch support included</th><td>30 days</td><td>60 days</td></tr>
+        <tr><th>Ongoing support (optional)</th><td>$300–500/mo</td><td>$300–500/mo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
+
+<div class="principle-band"><div class="container principle-inner">
+  <div class="principle-mark">◆</div>
+  <p class="principle-line">A price you can hold in your head. A scope you can hold in your hands.</p>
+</div></div>
+
+<section class="band"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 03</span><span class="band-num-label">Pricing Questions</span></div>
+  <div class="band-body">
+    <h2 class="band-title">The questions we hear. <em>And honest answers.</em></h2>
+    <div class="faq">
+      <div class="faq-item"><p class="faq-q">Why one-time fees instead of a monthly subscription?</p><p class="faq-a">Because the value is in the architecture, not the access. Once your system is deployed, your team owns it. You do not pay rent on infrastructure that is already working. Ongoing support exists for the teams that want it — never as a gate.</p></div>
+      <div class="faq-item"><p class="faq-q">What is actually customisable?</p><p class="faq-a">Premium includes field configuration tuned to your industry, vendor categories, deal stages renamed to your vocabulary, and integrations with tools your team already uses — most common: email, Slack, QuickBooks, accounting systems. Standard ships configured as we recommend; Premium ships configured as you operate.</p></div>
+      <div class="faq-item"><p class="faq-q">Can pricing be negotiated?</p><p class="faq-a">The list price is the price. We hold it because it is calibrated to the work — not against a discount we are hoping you will ask for. If your situation is unusual (multi-team rollout, a deep integration project, or you are an early reference partner), we will talk scope honestly.</p></div>
+      <div class="faq-item"><p class="faq-q">What if I outgrow Standard later?</p><p class="faq-a">You can upgrade to Premium at any point for the difference ($1,500) plus the configuration scope. We do not penalise the choice to start narrow — most teams should. The training path shows when each advanced feature usually earns its place.</p></div>
+      <div class="faq-item"><p class="faq-q">Does the pilot count toward the deployment fee?</p><p class="faq-a">The pilot is free, and it stands on its own. If you choose to deploy after the pilot, you pay the Standard or Premium fee in full — but the work done during the pilot informs how we configure your deployment, so nothing is lost.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact" style="padding:80px 0;background:#0E1113;border-top:1px solid rgba(255,255,255,0.05);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;max-width:960px;">
+      <div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:16px;font-weight:500;">Book a Diagnostic</div>
+        <h2 style="font-family:var(--font-serif);font-weight:500;font-size:clamp(26px,3vw,34px);line-height:1.2;color:var(--bone-white);margin:0 0 16px;">Test the architecture before you commit.</h2>
+        <p style="font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;line-height:1.8;color:#8A8580;margin:0 0 28px;">The pilot is always free. Four weeks with the system in your team's hands — at the end you'll know whether Standard, Premium, or neither is the right fit.</p>
+        <div style="font-family:var(--font-body);font-size:13px;line-height:1.8;color:#555C64;">
+          <div style="margin-bottom:8px;">◆ &nbsp;Four-week pilot, always free</div>
+          <div style="margin-bottom:8px;">◆ &nbsp;Response within 24 hours</div>
+          <div>◆ &nbsp;Setup in ~30 minutes</div>
+        </div>
+      </div>
+      <div>
+        <form id="contact-form" onsubmit="handleSubmit(event)" style="display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Full Name</label>
+            <input type="text" name="name" required placeholder="Your name" style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+          </div>
+          <div>
+            <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Company</label>
+            <input type="text" name="company" required placeholder="Your company" style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+          </div>
+          <div>
+            <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Email</label>
+            <input type="email" name="email" required placeholder="your@company.com" style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+          </div>
+          <div>
+            <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Standard or Premium in mind? <span style="color:#3D444A;">(optional)</span></label>
+            <textarea name="message" rows="4" placeholder="Any questions about pricing, scope, or fit..." style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;resize:vertical;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'"></textarea>
+          </div>
+          <button type="submit" class="btn btn--teal" style="align-self:flex-start;">Book a Diagnostic →</button>
+          <div id="form-status" style="display:none;font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:12px 14px;border-radius:2px;"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById('form-status');
+  const btn = form.querySelector('button[type="submit"]');
+  const data = new FormData(form);
+  const subject = encodeURIComponent("Diagnostic Request — " + data.get('company'));
+  const body = encodeURIComponent("Name: " + data.get('name') + "\nCompany: " + data.get('company') + "\nEmail: " + data.get('email') + "\n\nMessage:\n" + data.get('message'));
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  window.location.href = "mailto:helloarke@outlook.com?subject=" + subject + "&body=" + body;
+  setTimeout(function() {
+    status.style.display = 'block';
+    status.style.background = 'rgba(53,92,99,0.15)';
+    status.style.border = '1px solid rgba(53,92,99,0.3)';
+    status.style.color = 'var(--storm-teal)';
+    status.textContent = "✓ Request sent — we'll be in touch within 24 hours.";
+    btn.textContent = 'Book a Diagnostic →';
+    btn.disabled = false;
+    form.reset();
+  }, 1000);
+}
+</script>
+
+<div class="further"><div class="container">
+  <div class="further-label">Keep reading</div>
+  <div class="further-links">
+    <a class="further-link" href="/partner/"><span class="lbl">Overview</span><span class="txt">What ARKE | Partner is, and is not</span><span class="arr">→</span></a>
+    <a class="further-link" href="/partner/help/"><span class="lbl">Help</span><span class="txt">Commercial deployment questions</span><span class="arr">→</span></a>
+  </div>
+</div></div>
+</main>
+<footer class="site-footer"><div class="container footer-row">
+  <div class="footer-brand">© 2026 BRIEL STRATEGIES LLC · ARKE SYSTEMS · CLEAR SIGNAL DESIGN™</div>
+  <div class="footer-links"><a class="footer-link" href="https://arke.systems">Systems</a><a class="footer-link" href="/partner/">Partner</a><a class="footer-link" href="https://brielos.com">BrielOS</a></div>
+</div></footer>
+</body></html>
