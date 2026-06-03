@@ -1,0 +1,405 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilot · ARKE | Partner</title>
+<style>@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Tenor+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
+:root {
+  --obsidian-ink:#111315;--iron-slate:#2B3137;--soft-graphite:#4A525A;
+  --bone-white:#F4F1EA;--bone-white-2:#EDE8DE;--vellum:#FAF7F0;
+  --deep-forest:#1F3B34;--storm-teal:#355C63;--lunar-blue:#667A8A;
+  --ash-mauve:#8B7E86;--ether-gold:#C7A86D;--oxide-copper:#9A6A4A;
+  --pale-sage:#C7D1C2;--rule:#DDD9D1;--fg-3:#6F7178;--fg-4:#8A8F96;
+  --font-serif:"Cormorant Garamond",Georgia,serif;
+  --font-sans:"Tenor Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --font-body:"Inter",system-ui,sans-serif;
+  --ease-out:cubic-bezier(0.2,0.6,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--obsidian-ink);color:var(--bone-white);font-family:var(--font-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--ether-gold);color:var(--obsidian-ink);}
+a{color:inherit;text-decoration:none;}
+p{margin:0 0 16px;}
+p:last-child{margin-bottom:0;}
+
+/* ── Layout ── */
+.container{max-width:1200px;margin:0 auto;padding:0 56px;}
+@media(max-width:768px){.container{padding:0 24px;}}
+
+/* ── Header ── */
+.site-header{position:sticky;top:0;z-index:100;padding:20px 0;background:rgba(17,19,21,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.header-row{display:flex;justify-content:space-between;align-items:center;gap:32px;}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.logo-mark{width:28px;height:28px;background:var(--storm-teal);color:var(--bone-white);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:16px;border-radius:2px;line-height:1;}
+.logo-word{font-family:var(--font-serif);font-weight:600;font-size:19px;letter-spacing:0.08em;color:var(--bone-white);}
+.logo-pipe{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;padding-left:10px;border-left:1px solid #2B3137;margin-left:4px;}
+.subnav{display:flex;gap:4px;align-items:center;}
+.subnav-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#7A8490;padding:6px 12px;border-radius:2px;transition:color 200ms,background 200ms;}
+.subnav-link:hover{color:var(--bone-white);}
+.subnav-link.is-active{color:var(--ether-gold);background:rgba(199,168,109,0.08);}
+.subnav-cta{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--storm-teal);padding:6px 14px;border:1px solid var(--storm-teal);border-radius:2px;margin-left:8px;transition:all 200ms;}
+.subnav-cta:hover{background:var(--storm-teal);color:var(--bone-white);}
+
+/* ── Hero ── */
+.page-hero{padding:88px 0 64px;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;}
+.page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 700px 400px at 65% 50%,rgba(53,92,99,0.1) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:800px;position:relative;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;margin-bottom:28px;transition:color 200ms;}
+.back-link:hover{color:var(--storm-teal);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:20px;font-weight:500;}
+.hero-eyebrow::before{content:"";width:24px;height:1px;background:var(--storm-teal);}
+.page-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(38px,5vw,58px);line-height:1.08;letter-spacing:-0.015em;color:var(--bone-white);margin:0 0 20px;}
+.page-title em{font-style:italic;color:var(--ether-gold);}
+.page-lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:18px;line-height:1.8;color:#8A8580;max-width:620px;margin:0 0 36px;}
+.hero-meta{display:flex;gap:0;border:1px solid rgba(255,255,255,0.07);max-width:560px;}
+.hero-meta-item{flex:1;padding:16px 20px;border-right:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;gap:4px;}
+.hero-meta-item:last-child{border-right:none;}
+.hero-meta-item .k{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;}
+.hero-meta-item .v{font-family:var(--font-serif);font-weight:600;font-size:16px;color:var(--bone-white);}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ── Band sections ── */
+.band{padding:64px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.band--alt{background:#0E1113;}
+.band-grid{display:grid;grid-template-columns:200px 1fr;gap:64px;align-items:start;}
+@media(max-width:900px){.band-grid{grid-template-columns:1fr;gap:24px;}}
+.band-rail{padding-top:4px;}
+.band-num{display:block;font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:0.22em;color:var(--ether-gold);margin-bottom:4px;}
+.band-num-label{display:block;font-family:var(--font-sans);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ash-mauve);}
+.band-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(24px,2.8vw,34px);line-height:1.2;letter-spacing:-0.01em;color:var(--bone-white);margin:0 0 20px;}
+.band-title em{font-style:italic;color:var(--ether-gold);}
+.band-lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;line-height:1.8;color:#8A8580;margin:0 0 28px;}
+.band-body p{font-family:var(--font-body);font-size:14px;line-height:1.8;color:#8A8580;}
+.band-body p a,.inline-link{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);transition:color 200ms,border-color 200ms;}
+.band-body p a:hover,.inline-link:hover{color:var(--ether-gold);border-color:rgba(199,168,109,0.4);}
+
+/* ── Workflow steps ── */
+.workflow{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.workflow-step{padding:24px 0 24px 28px;border-left:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.05);position:relative;}
+.workflow-step:last-child{border-bottom:none;}
+.workflow-step::before{content:"";position:absolute;left:-4px;top:28px;width:7px;height:7px;border-radius:999px;background:var(--storm-teal);}
+.workflow-num{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:8px;font-weight:500;}
+.workflow-title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0 0 8px;line-height:1.25;}
+.workflow-body{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;margin:0;}
+.workflow-arrow{font-family:var(--font-mono);font-size:12px;color:var(--storm-teal);}
+
+/* ── Feature grid ── */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:8px;}
+@media(max-width:768px){.feature-grid{grid-template-columns:1fr;}}
+.feature-card{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:32px 28px;display:flex;flex-direction:column;gap:10px;}
+.feature-card .icon{width:40px;height:40px;color:var(--storm-teal);margin-bottom:4px;}
+.feature-card .label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);font-weight:500;}
+.feature-card .title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0;line-height:1.2;}
+.feature-card .body{font-family:var(--font-body);font-size:13px;line-height:1.75;color:#8A8580;margin:0;}
+
+/* ── Fields list ── */
+.fields{margin:0;padding:0;}
+.field-row{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.field-row:last-child{border-bottom:none;}
+.field-name{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bone-white);font-weight:500;padding-top:2px;}
+.field-desc{font-family:var(--font-body);font-size:14px;line-height:1.7;color:#8A8580;margin:0;}
+.field-desc em{font-style:italic;color:var(--fg-4);}
+.fields-note{font-family:var(--font-body);font-size:13px;line-height:1.7;color:#555C64;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);}
+.fields-note a{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);}
+
+/* ── Timeline ── */
+.timeline{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;}
+.timeline-phase{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.timeline-phase:last-child{border-bottom:none;}
+.timeline-meta{display:flex;flex-direction:column;gap:6px;padding-top:2px;}
+.timeline-week{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ether-gold);font-weight:500;}
+.timeline-status{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#555C64;}
+.timeline-status .dot{width:5px;height:5px;border-radius:999px;background:var(--storm-teal);}
+.timeline-title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0 0 8px;line-height:1.2;}
+.timeline-body{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;margin:0;}
+
+/* ── FAQ (flat) ── */
+.faq{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.faq-item{padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-family:var(--font-serif);font-weight:600;font-size:19px;color:var(--bone-white);margin:0 0 10px;line-height:1.3;}
+.faq-a{font-family:var(--font-body);font-size:14px;line-height:1.8;color:#8A8580;}
+.faq-a a{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);}
+
+/* ── Help jump nav ── */
+.help-jump{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px;}
+.help-jump li a{display:grid;grid-template-columns:48px 1fr 24px;align-items:center;gap:16px;padding:16px 18px;background:#161A1D;border:1px solid rgba(255,255,255,0.05);text-decoration:none;transition:background 200ms,border-color 200ms;}
+.help-jump li a:hover{background:#1A1F23;border-color:rgba(53,92,99,0.25);}
+.hj-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--ether-gold);font-weight:500;}
+.hj-title{font-family:var(--font-serif);font-weight:500;font-size:17px;color:var(--bone-white);}
+.hj-arr{font-family:var(--font-mono);font-size:12px;color:#555C64;}
+
+/* ── Feature deep ── */
+.feature-deep{display:grid;grid-template-columns:100px 1fr 240px;gap:36px;align-items:start;padding:32px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.feature-deep:last-child{border-bottom:none;}
+@media(max-width:900px){.feature-deep{grid-template-columns:1fr;}}
+.fd-diagram{width:100px;height:100px;color:var(--storm-teal);opacity:0.7;}
+.fd-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:8px;font-weight:500;}
+.fd-title{font-family:var(--font-serif);font-weight:600;font-size:22px;color:var(--bone-white);margin:0 0 10px;line-height:1.2;}
+.fd-body{font-family:var(--font-body);font-size:14px;line-height:1.8;color:#8A8580;margin:0;}
+.fd-usecase{background:#161A1D;border:1px solid rgba(255,255,255,0.05);border-left:2px solid var(--ether-gold);padding:20px 22px;}
+.uc-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:8px;font-weight:500;}
+.uc-body{font-family:var(--font-body);font-size:13px;line-height:1.75;color:#8A8580;}
+
+/* ── Training path ── */
+.training{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.training-row{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.training-row:last-child{border-bottom:none;}
+.training-when{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ether-gold);font-weight:500;padding-top:2px;}
+.training-text{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;}
+.training-text em{font-style:italic;color:var(--fg-4);}
+
+/* ── Pricing ── */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px;}
+@media(max-width:768px){.pricing-grid{grid-template-columns:1fr;}}
+.price-card{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:36px 32px;display:flex;flex-direction:column;gap:0;}
+.price-card--featured{background:#1A2420;border-color:rgba(53,92,99,0.35);}
+.price-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:10px;font-weight:500;}
+.price-title{font-family:var(--font-serif);font-weight:600;font-size:28px;color:var(--bone-white);margin:0 0 16px;line-height:1.1;}
+.price-amount{font-family:var(--font-serif);font-weight:500;font-size:52px;color:var(--bone-white);line-height:1;letter-spacing:-0.02em;margin-bottom:4px;}
+.price-amount .currency{font-size:28px;vertical-align:top;padding-top:10px;display:inline-block;color:var(--fg-3);}
+.price-unit{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#555C64;margin-bottom:18px;}
+.price-tagline{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:15px;line-height:1.7;color:#8A8580;padding:16px 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);margin-bottom:20px;}
+.price-list{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:8px;}
+.price-list li{font-family:var(--font-body);font-size:13px;line-height:1.6;color:#8A8580;padding-left:16px;position:relative;}
+.price-list li::before{content:"—";position:absolute;left:0;color:var(--storm-teal);font-family:var(--font-mono);}
+.price-cta{margin-top:auto;}
+.price-optional{background:#0E1113;border:1px solid rgba(255,255,255,0.05);border-left:2px solid var(--ether-gold);padding:28px 32px;margin-top:2px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;}
+.po-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:8px;font-weight:500;}
+.po-title{font-family:var(--font-serif);font-weight:600;font-size:22px;color:var(--bone-white);margin:0 0 10px;}
+.po-body{font-family:var(--font-body);font-size:13px;line-height:1.75;color:#8A8580;margin:0;}
+.po-price{font-family:var(--font-serif);font-weight:500;font-size:32px;color:var(--bone-white);white-space:nowrap;text-align:right;flex-shrink:0;}
+.po-price .unit{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#555C64;font-weight:400;}
+
+/* ── Compare table ── */
+.compare{width:100%;border-collapse:collapse;margin-top:8px;font-family:var(--font-body);font-size:13px;}
+.compare thead th{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);}
+.compare thead th:first-child{width:50%;}
+.compare .plan-label{color:var(--bone-white);}
+.compare tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);}
+.compare tbody tr:hover{background:rgba(255,255,255,0.015);}
+.compare tbody th{padding:10px 16px;text-align:left;color:#8A8580;font-weight:400;}
+.compare tbody td{padding:10px 16px;color:#8A8580;text-align:center;}
+.compare .yes{color:var(--storm-teal);font-size:16px;}
+.compare .no{color:#2B3137;}
+.compare .section-row th{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);padding-top:20px;font-weight:500;}
+.compare .section-row td{padding-top:20px;}
+
+/* ── Contact block ── */
+.contact-block{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px;}
+@media(max-width:768px){.contact-block{grid-template-columns:1fr;}}
+.contact-block > div{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:28px 28px;}
+.cb-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:10px;font-weight:500;}
+.cb-title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0 0 10px;line-height:1.3;}
+.cb-body{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;margin:0;}
+.cb-body a{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);}
+
+/* ── Principle band ── */
+.principle-band{padding:48px 0;background:var(--deep-forest);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);}
+.principle-inner{display:flex;align-items:center;gap:20px;max-width:800px;}
+.principle-mark{font-family:var(--font-serif);font-size:20px;color:var(--ether-gold);flex-shrink:0;opacity:0.6;}
+.principle-line{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:20px;line-height:1.65;color:rgba(244,241,234,0.75);margin:0;}
+
+/* ── CTA section ── */
+.cta-section{padding:80px 0;text-align:center;background:var(--deep-forest);position:relative;overflow:hidden;}
+.cta-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 500px 300px at 50% 50%,rgba(199,168,109,0.06) 0%,transparent 70%);pointer-events:none;}
+.cta-inner{max-width:600px;margin:0 auto;position:relative;}
+.cta-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:16px;font-weight:500;}
+.cta-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(28px,3vw,38px);line-height:1.2;color:var(--bone-white);margin:0 0 14px;letter-spacing:-0.01em;}
+.cta-title em{font-style:italic;color:var(--ether-gold);}
+.cta-body{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;line-height:1.75;color:rgba(244,241,234,0.6);margin:0 0 28px;}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-sub{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(244,241,234,0.3);margin-top:16px;}
+
+/* ── Further reading strip ── */
+.further{padding:48px 0;background:#0A0C0E;border-top:1px solid rgba(255,255,255,0.04);}
+.further-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#3D444A;margin-bottom:20px;}
+.further-links{display:flex;gap:2px;}
+.further-link{flex:1;display:flex;flex-direction:column;gap:6px;padding:20px 22px;background:#111315;border:1px solid rgba(255,255,255,0.04);text-decoration:none;transition:background 200ms,border-color 200ms;}
+.further-link:hover{background:#161A1D;border-color:rgba(53,92,99,0.2);}
+.further-link .lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);font-weight:500;}
+.further-link .txt{font-family:var(--font-body);font-size:13px;line-height:1.5;color:#6F7178;}
+.further-link .arr{font-family:var(--font-mono);font-size:11px;color:#3D444A;margin-top:4px;}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border:1px solid var(--bone-white);background:var(--bone-white);color:var(--obsidian-ink);font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:all 200ms;border-radius:2px;text-decoration:none;}
+.btn:hover{background:transparent;color:var(--bone-white);}
+.btn--sec{background:transparent;color:var(--bone-white);border-color:rgba(244,241,234,0.25);}
+.btn--sec:hover{border-color:var(--bone-white);}
+.btn--teal{background:var(--storm-teal);border-color:var(--storm-teal);color:var(--bone-white);}
+.btn--teal:hover{background:transparent;color:var(--storm-teal);}
+.btn-group{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ── Footer ── */
+.site-footer{background:#0A0C0E;padding:28px 0;border-top:1px solid rgba(255,255,255,0.04);}
+.footer-row{display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3D444A;}
+.footer-links{display:flex;gap:24px;}
+.footer-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#3D444A;transition:color 200ms;}
+.footer-link:hover{color:#6F7178;}</style>
+</head><body>
+<header class="site-header"><div class="container header-row">
+  <a class="logo" href="https://arke.systems"><div class="logo-mark">◆</div><div class="logo-word">ARKE</div><div class="logo-pipe">Partner</div></a>
+  <nav class="subnav">
+    <a class="subnav-link" href="/partner/">Overview</a>
+    <a class="subnav-link is-active" href="/partner/pilot/">Pilot</a>
+    
+    <a class="subnav-link" href="/partner/pricing/">Pricing</a>
+    <a class="subnav-link" href="/partner/help/">Help</a>
+    <a class="subnav-cta" href="/partner/pilot/">Request Pilot →</a>
+  </nav>
+</div></header>
+<main><section class="page-hero"><div class="container"><div class="hero-inner">
+  <a class="back-link" href="/partner/">← Partner Overview</a>
+  <div class="hero-eyebrow">ARKE | Partner · Pilot</div>
+  <h1 class="page-title">Partner Pilot. <em>Four weeks to clarity.</em></h1>
+  <p class="page-lead">White-label deal pipeline infrastructure for hardware companies. Test the system with your real deals. Free for four weeks. No commitment.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="k">Duration</span><span class="v">4 weeks</span></div>
+    <div class="hero-meta-item"><span class="k">Setup</span><span class="v">~30 min</span></div>
+    <div class="hero-meta-item"><span class="k">Cost</span><span class="v">Free</span></div>
+    <div class="hero-meta-item"><span class="k">Commitment</span><span class="v">None</span></div>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 01</span><span class="band-num-label">The Workflow</span></div>
+  <div class="band-body">
+    <h2 class="band-title">What you are testing. <em>In three steps.</em></h2>
+    <p class="band-lead">ARKE | Partner is not a dashboard. It is a pipeline architecture — a way of moving deals from first contact to closed without the manual tracking that erodes signal.</p>
+    <div class="workflow">
+      <div class="workflow-step"><div class="workflow-num">01 · Log</div><h3 class="workflow-title">Add your deals.</h3><p class="workflow-body">Log a deal in minutes. The fields are deliberately few — who, what, value. Nothing else is required.</p></div>
+      <div class="workflow-step"><div class="workflow-num">02 · Move</div><h3 class="workflow-title">Move through the pipeline.</h3><p class="workflow-body">Watch deals progress: Registered → Qualified → Quoted → Won.</p></div>
+      <div class="workflow-step"><div class="workflow-num">03 · Read</div><h3 class="workflow-title">Read the dashboard.</h3><p class="workflow-body">Pipeline health at a glance — stage distribution, deal velocity, value in motion. One screen, no hunting.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="band band--alt"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 02</span><span class="band-num-label">What You Track</span></div>
+  <div class="band-body">
+    <h2 class="band-title">Six fields. <em>That is the whole intake.</em></h2>
+    <p class="band-lead">Every additional field is noise dressed as rigour. The pilot ships with the six that carry signal, and only the six.</p>
+    <dl class="fields">
+      <div class="field-row"><dt class="field-name">Deal ID</dt><dd class="field-desc">Auto-generated. <em>You never have to invent one.</em></dd></div>
+      <div class="field-row"><dt class="field-name">Customer Name</dt><dd class="field-desc">Who you are selling to.</dd></div>
+      <div class="field-row"><dt class="field-name">Opportunity</dt><dd class="field-desc">What you are selling — a short line, not a proposal.</dd></div>
+      <div class="field-row"><dt class="field-name">Deal Value</dt><dd class="field-desc">Dollar amount. <em>Best estimate is fine.</em></dd></div>
+      <div class="field-row"><dt class="field-name">Deal Stage</dt><dd class="field-desc">Registered, Qualified, Quoted, or Won.</dd></div>
+      <div class="field-row"><dt class="field-name">Submission Date</dt><dd class="field-desc">When you logged it — auto-stamped.</dd></div>
+    </dl>
+    <p class="fields-note">Need to customise fields, add owners, or attach files? Those live in <a href="/partner/advanced/">Advanced</a> — introduced after the pilot, when you actually need them.</p>
+  </div>
+</div></section>
+
+<section class="band"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 03</span><span class="band-num-label">Your Four Weeks</span></div>
+  <div class="band-body">
+    <h2 class="band-title">A calm cadence. <em>No surprises.</em></h2>
+    <p class="band-lead">You will know what is happening at every point. Each week has a shape — and at the end, the decision is yours, not ours.</p>
+    <ol class="timeline">
+      <li class="timeline-phase"><div class="timeline-meta"><span class="timeline-week">Week 01 – 02</span><span class="timeline-status"><span class="dot"></span>Explore</span></div><div><h3 class="timeline-title">Get familiar.</h3><p class="timeline-body">Add five to ten deals from your existing pipeline. Move them through the stages. Get the feel of the system in your hands.</p></div></li>
+      <li class="timeline-phase"><div class="timeline-meta"><span class="timeline-week">Week 03</span><span class="timeline-status"><span class="dot"></span>Refine</span></div><div><h3 class="timeline-title">Bring in your team.</h3><p class="timeline-body">Invite one or two teammates. Note what helps — and what gets in the way. We listen, and we adjust.</p></div></li>
+      <li class="timeline-phase"><div class="timeline-meta"><span class="timeline-week">Week 04</span><span class="timeline-status"><span class="dot"></span>Decide</span></div><div><h3 class="timeline-title">A conversation, not a pitch.</h3><p class="timeline-body">We meet — thirty minutes — to talk about what worked, what did not, and whether commercial deployment makes sense.</p></div></li>
+      <li class="timeline-phase"><div class="timeline-meta"><span class="timeline-week">Then</span><span class="timeline-status"><span class="dot"></span>Your Choice</span></div><div><h3 class="timeline-title">Deploy, iterate, or stay in touch.</h3><p class="timeline-body">Three honest paths. Commercial deployment, another round of pilot iteration, or we part well and stay in touch for when timing changes.</p></div></li>
+    </ol>
+  </div>
+</div></section>
+
+<div class="principle-band"><div class="container principle-inner">
+  <div class="principle-mark">◆</div>
+  <p class="principle-line">Test the architecture before you commit to it. Clarity should arrive in weeks, not quarters.</p>
+</div></div>
+
+<section class="band band--alt"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 04</span><span class="band-num-label">Common Questions</span></div>
+  <div class="band-body">
+    <h2 class="band-title">Before you ask. <em>The four we hear most.</em></h2>
+    <div class="faq">
+      <div class="faq-item"><p class="faq-q">How do I actually get started?</p><p class="faq-a">Create a free Airtable account — that is where the pilot runs. We send you a link, you accept the invite, and you are in. From request to first deal logged is usually about thirty minutes.</p></div>
+      <div class="faq-item"><p class="faq-q">Do I need to know Airtable?</p><p class="faq-a">No. The pilot is designed to be intuitive — if you can fill in a spreadsheet, you can run this. We walk you through the first session, and the onboarding guide is one click away whenever you need it.</p></div>
+      <div class="faq-item"><p class="faq-q">What if it does not fit after four weeks?</p><p class="faq-a">Then it does not fit — and that is useful information for both of us. We will talk about what would have helped, or we part well and stay in touch. No pressure, no follow-up sequences.</p></div>
+      <div class="faq-item"><p class="faq-q">Can I invite my team?</p><p class="faq-a">Yes — one or two teammates during the pilot. Bringing in the people who will actually use the system is how you learn whether the architecture holds up under real conditions.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact" style="padding:80px 0;background:#0E1113;border-top:1px solid rgba(255,255,255,0.05);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;max-width:960px;">
+      <div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:16px;font-weight:500;">Request Pilot Access</div>
+        <h2 style="font-family:var(--font-serif);font-weight:500;font-size:clamp(26px,3vw,34px);line-height:1.2;color:var(--bone-white);margin:0 0 16px;">Start with a conversation.</h2>
+        <p style="font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;line-height:1.8;color:#8A8580;margin:0 0 28px;">A short exchange to scope your workspace. No demos required, no sales calls scheduled. We set up your pilot within 30 minutes of your reply.</p>
+        <div style="font-family:var(--font-body);font-size:13px;line-height:1.8;color:#555C64;">
+          <div style="margin-bottom:8px;">◆ &nbsp;Hardware and channel sales teams</div>
+          <div style="margin-bottom:8px;">◆ &nbsp;Response within 24 hours</div>
+          <div>◆ &nbsp;Four-week pilot, no commitment</div>
+        </div>
+      </div>
+      <div>
+        <form id="contact-form" onsubmit="handleSubmit(event)" style="display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Full Name</label>
+            <input type="text" name="name" required placeholder="Your name" style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+          </div>
+          <div>
+            <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Company</label>
+            <input type="text" name="company" required placeholder="Your company" style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+          </div>
+          <div>
+            <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Email</label>
+            <input type="email" name="email" required placeholder="your@company.com" style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+          </div>
+          <div>
+            <label style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;display:block;margin-bottom:6px;">Anything we should know? <span style="color:#3D444A;">(optional)</span></label>
+            <textarea name="message" rows="4" placeholder="Team size, current pipeline setup, specific pain point..." style="width:100%;background:#161A1D;border:1px solid rgba(255,255,255,0.08);color:var(--bone-white);font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:2px;outline:none;resize:vertical;transition:border-color 200ms;" onfocus="this.style.borderColor='rgba(53,92,99,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'"></textarea>
+          </div>
+          <button type="submit" class="btn btn--teal" style="align-self:flex-start;">Request Pilot Access →</button>
+          <div id="form-status" style="display:none;font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:12px 14px;border-radius:2px;"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById('form-status');
+  const btn = form.querySelector('button[type="submit"]');
+  const data = new FormData(form);
+  const subject = encodeURIComponent("Pilot Request — " + data.get('company'));
+  const body = encodeURIComponent("Name: " + data.get('name') + "\nCompany: " + data.get('company') + "\nEmail: " + data.get('email') + "\n\nMessage:\n" + data.get('message'));
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  window.location.href = "mailto:helloarke@outlook.com?subject=" + subject + "&body=" + body;
+  setTimeout(function() {
+    status.style.display = 'block';
+    status.style.background = 'rgba(53,92,99,0.15)';
+    status.style.border = '1px solid rgba(53,92,99,0.3)';
+    status.style.color = 'var(--storm-teal)';
+    status.textContent = "✓ Request sent — we'll be in touch within 24 hours.";
+    btn.textContent = 'Request Pilot Access →';
+    btn.disabled = false;
+    form.reset();
+  }, 1000);
+}
+</script>
+
+<div class="further"><div class="container">
+  <div class="further-label">Further reading</div>
+  <div class="further-links">
+    <a class="further-link" href="/partner/pricing/"><span class="lbl">Pricing</span><span class="txt">One-time fees, no surprises</span><span class="arr">→</span></a>
+    <a class="further-link" href="/partner/help/"><span class="lbl">Help</span><span class="txt">Every common question, answered</span><span class="arr">→</span></a>
+  </div>
+</div></div></main>
+<footer class="site-footer"><div class="container footer-row">
+  <div class="footer-brand">© 2026 BRIEL STRATEGIES LLC · ARKE SYSTEMS · CLEAR SIGNAL DESIGN™</div>
+  <div class="footer-links">
+    <a class="footer-link" href="https://arke.systems">Systems</a>
+    <a class="footer-link" href="/partner/">Partner</a>
+    <a class="footer-link" href="https://brielos.com">BrielOS</a>
+  </div>
+</div></footer>
+</body></html>
