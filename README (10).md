@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Overview · ARKE | Partner</title>
+<title>Pilot · ARKE | Partner</title>
 <style>@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Tenor+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
 :root {
   --obsidian-ink:#111315;--iron-slate:#2B3137;--soft-graphite:#4A525A;
@@ -241,124 +241,103 @@ p:last-child{margin-bottom:0;}
 <header class="site-header"><div class="container header-row">
   <a class="logo" href="https://arke.systems"><div class="logo-mark">◆</div><div class="logo-word">ARKE</div><div class="logo-pipe">Partner</div></a>
   <nav class="subnav">
-    <a class="subnav-link is-active" href="/partner/">Overview</a>
-    <a class="subnav-link" href="/partner/pilot/">Pilot</a>
+    <a class="subnav-link" href="/partner/">Overview</a>
+    <a class="subnav-link is-active" href="/partner/pilot/">Pilot</a>
     <a class="subnav-link" href="/partner/advanced/">Advanced</a>
     <a class="subnav-link" href="/partner/pricing/">Pricing</a>
     <a class="subnav-link" href="/partner/help/">Help</a>
     <a class="subnav-cta" href="/partner/pilot/">Request Pilot →</a>
   </nav>
 </div></header>
-<main><section class="page-hero">
-  <div class="container"><div class="hero-inner">
-    <a class="back-link" href="https://arke.systems/partner">← All Systems</a>
-    <div class="hero-eyebrow">ARKE | Partner</div>
-    <h1 class="page-title">Deal pipeline infrastructure. <em>White-labelled for your team.</em></h1>
-    <p class="page-lead">A pipeline architecture for hardware companies — built on BrielOS, deployable in days, calibrated to the way your team actually sells. Test it free for four weeks.</p>
-    <div class="hero-actions">
-      <a class="btn btn--teal" href="/partner/pilot/">Explore the Pilot →</a>
-      <a class="btn btn--sec" href="/partner/pricing/">See Pricing</a>
-    </div>
-  </div></div>
-</section>
+<main><section class="page-hero"><div class="container"><div class="hero-inner">
+  <a class="back-link" href="/partner/">← Partner Overview</a>
+  <div class="hero-eyebrow">ARKE | Partner · Pilot</div>
+  <h1 class="page-title">Partner Pilot. <em>Four weeks to clarity.</em></h1>
+  <p class="page-lead">White-label deal pipeline infrastructure for hardware companies. Test the system with your real deals. Free for four weeks. No commitment.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="k">Duration</span><span class="v">4 weeks</span></div>
+    <div class="hero-meta-item"><span class="k">Setup</span><span class="v">~30 min</span></div>
+    <div class="hero-meta-item"><span class="k">Cost</span><span class="v">Free</span></div>
+    <div class="hero-meta-item"><span class="k">Commitment</span><span class="v">None</span></div>
+  </div>
+</div></div></section>
 
-<section class="band">
-  <div class="container band-grid">
-    <div class="band-rail"><span class="band-num">§ 01</span><span class="band-num-label">The Problem</span></div>
-    <div class="band-body">
-      <h2 class="band-title">Your pipeline isn't broken. <em>It's invisible.</em></h2>
-      <p class="band-lead">Most hardware sales teams operate on a substrate of spreadsheets, inbox threads, and tribal knowledge. The work is real. The architecture beneath it is not.</p>
-      <div class="workflow">
-        <div class="workflow-step"><div class="workflow-num">◆ · Distortion 01</div><h3 class="workflow-title">Tracking is manual.</h3><p class="workflow-body">Deals live in someone's head, someone's inbox, and three versions of a spreadsheet. Forecasts are guesses dressed as numbers.</p></div>
-        <div class="workflow-step"><div class="workflow-num">◆ · Distortion 02</div><h3 class="workflow-title">Stages are vague.</h3><p class="workflow-body">"In progress" covers everything from first email to signed PO. Without clear stages, nobody knows what's actually moving.</p></div>
-        <div class="workflow-step"><div class="workflow-num">◆ · Distortion 03</div><h3 class="workflow-title">Signal decays.</h3><p class="workflow-body">Important deals get lost behind urgent ones. By the time you notice the gap, the quarter is already shaped by it.</p></div>
-      </div>
-      <p style="margin-top:32px;">These are structural problems — not motivation problems, not headcount problems. <a class="inline-link" href="/partner/pilot/">A pilot</a> reveals which layer is actually fractured.</p>
+<section class="band"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 01</span><span class="band-num-label">The Workflow</span></div>
+  <div class="band-body">
+    <h2 class="band-title">What you are testing. <em>In three steps.</em></h2>
+    <p class="band-lead">ARKE | Partner is not a dashboard. It is a pipeline architecture — a way of moving deals from first contact to closed without the manual tracking that erodes signal.</p>
+    <div class="workflow">
+      <div class="workflow-step"><div class="workflow-num">01 · Log</div><h3 class="workflow-title">Add your deals.</h3><p class="workflow-body">Log a deal in minutes. The fields are deliberately few — who, what, value. Nothing else is required.</p></div>
+      <div class="workflow-step"><div class="workflow-num">02 · Move</div><h3 class="workflow-title">Move through the pipeline.</h3><p class="workflow-body">Watch deals progress: Registered → Qualified → Quoted → Won.</p></div>
+      <div class="workflow-step"><div class="workflow-num">03 · Read</div><h3 class="workflow-title">Read the dashboard.</h3><p class="workflow-body">Pipeline health at a glance — stage distribution, deal velocity, value in motion. One screen, no hunting.</p></div>
     </div>
   </div>
-</section>
+</div></section>
 
-<section class="band band--alt">
-  <div class="container band-grid">
-    <div class="band-rail"><span class="band-num">§ 02</span><span class="band-num-label">What's Included</span></div>
-    <div class="band-body">
-      <h2 class="band-title">Four surfaces. <em>One architecture.</em></h2>
-      <p class="band-lead">ARKE | Partner ships as a coherent system — not a feature list. Each surface answers one question; together, they replace the spreadsheet substrate entirely.</p>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <div class="icon"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="8" height="36"/><rect x="18" y="14" width="8" height="30"/><rect x="30" y="20" width="8" height="24"/><rect x="42" y="26" width="6" height="18"/><line x1="4" y1="44" x2="50" y2="44"/></svg></div>
-          <span class="label">◆ Pipeline</span><h3 class="title">Kanban-style stages.</h3>
-          <p class="body">Registered → Qualified → Quoted → Won. Drag a deal forward; the whole team sees it move. No status meetings required.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="40" height="36"/><line x1="6" y1="18" x2="46" y2="18"/><line x1="6" y1="26" x2="46" y2="26"/><line x1="6" y1="34" x2="46" y2="34"/><line x1="18" y1="8" x2="18" y2="44"/><line x1="32" y1="8" x2="32" y2="44"/></svg></div>
-          <span class="label">◆ Deal List</span><h3 class="title">Tabular view, filtered.</h3>
-          <p class="body">Every deal, every field, sortable and filterable. The view operators reach for when they want the whole truth at once.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="26" r="18"/><path d="M 26 26 L 26 8"/><path d="M 26 26 L 42 26"/><path d="M 26 26 L 14 38"/></svg></div>
-          <span class="label">◆ Dashboard</span><h3 class="title">Pipeline health, at a glance.</h3>
-          <p class="body">Stage distribution. Deal velocity. Value in motion. One screen that tells you where the quarter actually stands.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="40" height="36"/><line x1="6" y1="20" x2="46" y2="20"/><line x1="14" y1="6" x2="14" y2="14"/><line x1="38" y1="6" x2="38" y2="14"/><circle cx="18" cy="30" r="1.5" fill="currentColor"/><circle cx="30" cy="30" r="1.5" fill="currentColor"/><circle cx="30" cy="38" r="1.5" fill="currentColor"/></svg></div>
-          <span class="label">◆ Calendar</span><h3 class="title">Follow-ups, made structural.</h3>
-          <p class="body">Renewal dates, follow-up windows, close targets — laid against time so nothing important goes quietly missing.</p>
-        </article>
-      </div>
-    </div>
+<section class="band band--alt"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 02</span><span class="band-num-label">What You Track</span></div>
+  <div class="band-body">
+    <h2 class="band-title">Six fields. <em>That is the whole intake.</em></h2>
+    <p class="band-lead">Every additional field is noise dressed as rigour. The pilot ships with the six that carry signal, and only the six.</p>
+    <dl class="fields">
+      <div class="field-row"><dt class="field-name">Deal ID</dt><dd class="field-desc">Auto-generated. <em>You never have to invent one.</em></dd></div>
+      <div class="field-row"><dt class="field-name">Customer Name</dt><dd class="field-desc">Who you are selling to.</dd></div>
+      <div class="field-row"><dt class="field-name">Opportunity</dt><dd class="field-desc">What you are selling — a short line, not a proposal.</dd></div>
+      <div class="field-row"><dt class="field-name">Deal Value</dt><dd class="field-desc">Dollar amount. <em>Best estimate is fine.</em></dd></div>
+      <div class="field-row"><dt class="field-name">Deal Stage</dt><dd class="field-desc">Registered, Qualified, Quoted, or Won.</dd></div>
+      <div class="field-row"><dt class="field-name">Submission Date</dt><dd class="field-desc">When you logged it — auto-stamped.</dd></div>
+    </dl>
+    <p class="fields-note">Need to customise fields, add owners, or attach files? Those live in <a href="/partner/advanced/">Advanced</a> — introduced after the pilot, when you actually need them.</p>
   </div>
-</section>
+</div></section>
 
-<section class="band">
-  <div class="container band-grid">
-    <div class="band-rail"><span class="band-num">§ 03</span><span class="band-num-label">How It Works</span></div>
-    <div class="band-body">
-      <h2 class="band-title">Clear Signal Design™. <em>Three movements.</em></h2>
-      <p class="band-lead">Every ARKE system follows the same diagnostic and deployment logic. The method is what makes the architecture portable — across companies, across teams, across time.</p>
-      <div class="workflow">
-        <div class="workflow-step"><div class="workflow-num">01 · Diagnosis</div><h3 class="workflow-title">Find the fractured substrate.</h3><p class="workflow-body">Map where signal actually breaks — not surface symptoms, but structural distortion. The pilot is the diagnostic instrument.</p></div>
-        <div class="workflow-step"><div class="workflow-num">02 · Distillation</div><h3 class="workflow-title">Eliminate noise aggressively.</h3><p class="workflow-body">Preserve only what carries signal. Six fields, four stages, one dashboard — and ruthlessly defended boundaries on each.</p></div>
-        <div class="workflow-step"><div class="workflow-num">03 · Deployment</div><h3 class="workflow-title">Launch the autonomous system.</h3><p class="workflow-body">The architecture works independently of any one operator. Decision-making becomes reliable. Scale happens without heroic effort.</p></div>
-      </div>
-    </div>
+<section class="band"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 03</span><span class="band-num-label">Your Four Weeks</span></div>
+  <div class="band-body">
+    <h2 class="band-title">A calm cadence. <em>No surprises.</em></h2>
+    <p class="band-lead">You will know what is happening at every point. Each week has a shape — and at the end, the decision is yours, not ours.</p>
+    <ol class="timeline">
+      <li class="timeline-phase"><div class="timeline-meta"><span class="timeline-week">Week 01 – 02</span><span class="timeline-status"><span class="dot"></span>Explore</span></div><div><h3 class="timeline-title">Get familiar.</h3><p class="timeline-body">Add five to ten deals from your existing pipeline. Move them through the stages. Get the feel of the system in your hands.</p></div></li>
+      <li class="timeline-phase"><div class="timeline-meta"><span class="timeline-week">Week 03</span><span class="timeline-status"><span class="dot"></span>Refine</span></div><div><h3 class="timeline-title">Bring in your team.</h3><p class="timeline-body">Invite one or two teammates. Note what helps — and what gets in the way. We listen, and we adjust.</p></div></li>
+      <li class="timeline-phase"><div class="timeline-meta"><span class="timeline-week">Week 04</span><span class="timeline-status"><span class="dot"></span>Decide</span></div><div><h3 class="timeline-title">A conversation, not a pitch.</h3><p class="timeline-body">We meet — thirty minutes — to talk about what worked, what did not, and whether commercial deployment makes sense.</p></div></li>
+      <li class="timeline-phase"><div class="timeline-meta"><span class="timeline-week">Then</span><span class="timeline-status"><span class="dot"></span>Your Choice</span></div><div><h3 class="timeline-title">Deploy, iterate, or stay in touch.</h3><p class="timeline-body">Three honest paths. Commercial deployment, another round of pilot iteration, or we part well and stay in touch for when timing changes.</p></div></li>
+    </ol>
   </div>
-</section>
+</div></section>
 
 <div class="principle-band"><div class="container principle-inner">
   <div class="principle-mark">◆</div>
-  <p class="principle-line">When you fix the architecture, clarity follows. The pipeline you see is the pipeline you can shape.</p>
+  <p class="principle-line">Test the architecture before you commit to it. Clarity should arrive in weeks, not quarters.</p>
 </div></div>
 
-<section class="band">
-  <div class="container band-grid">
-    <div class="band-rail"><span class="band-num">§ 04</span><span class="band-num-label">Who It's For</span></div>
-    <div class="band-body">
-      <h2 class="band-title">Hardware companies. <em>Small teams selling real things.</em></h2>
-      <p>ARKE | Partner was built for hardware businesses — companies whose deals carry weight, shipping logistics, and quarter-shaped cycles. If your sales team is between three and thirty people, if forecasting is currently a quarterly act of guesswork, if you've outgrown the spreadsheet but a full CRM is overkill — this is for you.</p>
-      <p>It is white-label by design. Your team sees your brand, not ours. The substrate is BrielOS; the surface is yours.</p>
+<section class="band band--alt"><div class="container band-grid">
+  <div class="band-rail"><span class="band-num">§ 04</span><span class="band-num-label">Common Questions</span></div>
+  <div class="band-body">
+    <h2 class="band-title">Before you ask. <em>The four we hear most.</em></h2>
+    <div class="faq">
+      <div class="faq-item"><p class="faq-q">How do I actually get started?</p><p class="faq-a">Create a free Airtable account — that is where the pilot runs. We send you a link, you accept the invite, and you are in. From request to first deal logged is usually about thirty minutes.</p></div>
+      <div class="faq-item"><p class="faq-q">Do I need to know Airtable?</p><p class="faq-a">No. The pilot is designed to be intuitive — if you can fill in a spreadsheet, you can run this. We walk you through the first session, and the onboarding guide is one click away whenever you need it.</p></div>
+      <div class="faq-item"><p class="faq-q">What if it does not fit after four weeks?</p><p class="faq-a">Then it does not fit — and that is useful information for both of us. We will talk about what would have helped, or we part well and stay in touch. No pressure, no follow-up sequences.</p></div>
+      <div class="faq-item"><p class="faq-q">Can I invite my team?</p><p class="faq-a">Yes — one or two teammates during the pilot. Bringing in the people who will actually use the system is how you learn whether the architecture holds up under real conditions.</p></div>
     </div>
   </div>
-</section>
+</div></section>
 
 <section class="cta-section"><div class="container"><div class="cta-inner">
-  <div class="cta-eyebrow">Test before you commit</div>
-  <h2 class="cta-title">Start with a four-week pilot. <em>Free, with no commitment.</em></h2>
-  <p class="cta-body">The pilot is how we prove the architecture against your actual deals. By week four, you'll know whether to deploy, iterate, or part well.</p>
-  <div class="cta-actions">
-    <a class="btn" href="/partner/pilot/">Explore the Pilot →</a>
-    <a class="btn btn--sec" href="/partner/pricing/">See Pricing</a>
-  </div>
+  <div class="cta-eyebrow">Ready when you are</div>
+  <h2 class="cta-title">Request pilot access. <em>We respond within one business day.</em></h2>
+  <p class="cta-body">A short form — just enough to set up your workspace. No demos required, no sales calls scheduled.</p>
+  <div class="cta-actions"><a class="btn" href="https://brielos.com/contact">Request Pilot Access →</a></div>
   <p class="cta-sub">Reply within 24 hours · Setup in ~30 minutes</p>
 </div></div></section>
 
 <div class="further"><div class="container">
-  <div class="further-label">Keep reading</div>
+  <div class="further-label">Further reading</div>
   <div class="further-links">
-    <a class="further-link" href="/partner/pilot/"><span class="lbl">Pilot</span><span class="txt">Four weeks, free, no commitment</span><span class="arr">→</span></a>
-    <a class="further-link" href="/partner/advanced/"><span class="lbl">Advanced</span><span class="txt">Power features for when you scale</span><span class="arr">→</span></a>
-    <a class="further-link" href="/partner/pricing/"><span class="lbl">Pricing</span><span class="txt">Transparent, one-time deployment fees</span><span class="arr">→</span></a>
-    <a class="further-link" href="/partner/help/"><span class="lbl">Help</span><span class="txt">Answers to every common question</span><span class="arr">→</span></a>
+    <a class="further-link" href="/partner/advanced/"><span class="lbl">Advanced</span><span class="txt">Power features, introduced when you need them</span><span class="arr">→</span></a>
+    <a class="further-link" href="/partner/pricing/"><span class="lbl">Pricing</span><span class="txt">One-time fees, no surprises</span><span class="arr">→</span></a>
+    <a class="further-link" href="/partner/help/"><span class="lbl">Help</span><span class="txt">Every common question, answered</span><span class="arr">→</span></a>
   </div>
 </div></div></main>
 <footer class="site-footer"><div class="container footer-row">
