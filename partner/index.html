@@ -1,0 +1,395 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · ARKE | Partner</title>
+<style>@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Tenor+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap");
+:root {
+  --obsidian-ink:#111315;--iron-slate:#2B3137;--soft-graphite:#4A525A;
+  --bone-white:#F4F1EA;--bone-white-2:#EDE8DE;--vellum:#FAF7F0;
+  --deep-forest:#1F3B34;--storm-teal:#355C63;--lunar-blue:#667A8A;
+  --ash-mauve:#8B7E86;--ether-gold:#C7A86D;--oxide-copper:#9A6A4A;
+  --pale-sage:#C7D1C2;--rule:#DDD9D1;--fg-3:#6F7178;--fg-4:#8A8F96;
+  --font-serif:"Cormorant Garamond",Georgia,serif;
+  --font-sans:"Tenor Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --font-body:"Inter",system-ui,sans-serif;
+  --ease-out:cubic-bezier(0.2,0.6,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--obsidian-ink);color:var(--bone-white);font-family:var(--font-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--ether-gold);color:var(--obsidian-ink);}
+a{color:inherit;text-decoration:none;}
+p{margin:0 0 16px;}
+p:last-child{margin-bottom:0;}
+
+/* ── Layout ── */
+.container{max-width:1200px;margin:0 auto;padding:0 56px;}
+@media(max-width:768px){.container{padding:0 24px;}}
+
+/* ── Header ── */
+.site-header{position:sticky;top:0;z-index:100;padding:20px 0;background:rgba(17,19,21,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.header-row{display:flex;justify-content:space-between;align-items:center;gap:32px;}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.logo-mark{width:28px;height:28px;background:var(--storm-teal);color:var(--bone-white);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:16px;border-radius:2px;line-height:1;}
+.logo-word{font-family:var(--font-serif);font-weight:600;font-size:19px;letter-spacing:0.08em;color:var(--bone-white);}
+.logo-pipe{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;padding-left:10px;border-left:1px solid #2B3137;margin-left:4px;}
+.subnav{display:flex;gap:4px;align-items:center;}
+.subnav-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#7A8490;padding:6px 12px;border-radius:2px;transition:color 200ms,background 200ms;}
+.subnav-link:hover{color:var(--bone-white);}
+.subnav-link.is-active{color:var(--ether-gold);background:rgba(199,168,109,0.08);}
+.subnav-cta{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--storm-teal);padding:6px 14px;border:1px solid var(--storm-teal);border-radius:2px;margin-left:8px;transition:all 200ms;}
+.subnav-cta:hover{background:var(--storm-teal);color:var(--bone-white);}
+
+/* ── Hero ── */
+.page-hero{padding:88px 0 64px;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;}
+.page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 700px 400px at 65% 50%,rgba(53,92,99,0.1) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:800px;position:relative;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;margin-bottom:28px;transition:color 200ms;}
+.back-link:hover{color:var(--storm-teal);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:20px;font-weight:500;}
+.hero-eyebrow::before{content:"";width:24px;height:1px;background:var(--storm-teal);}
+.page-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(38px,5vw,58px);line-height:1.08;letter-spacing:-0.015em;color:var(--bone-white);margin:0 0 20px;}
+.page-title em{font-style:italic;color:var(--ether-gold);}
+.page-lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:18px;line-height:1.8;color:#8A8580;max-width:620px;margin:0 0 36px;}
+.hero-meta{display:flex;gap:0;border:1px solid rgba(255,255,255,0.07);max-width:560px;}
+.hero-meta-item{flex:1;padding:16px 20px;border-right:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;gap:4px;}
+.hero-meta-item:last-child{border-right:none;}
+.hero-meta-item .k{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#555C64;}
+.hero-meta-item .v{font-family:var(--font-serif);font-weight:600;font-size:16px;color:var(--bone-white);}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ── Band sections ── */
+.band{padding:64px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.band--alt{background:#0E1113;}
+.band-grid{display:grid;grid-template-columns:200px 1fr;gap:64px;align-items:start;}
+@media(max-width:900px){.band-grid{grid-template-columns:1fr;gap:24px;}}
+.band-rail{padding-top:4px;}
+.band-num{display:block;font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:0.22em;color:var(--ether-gold);margin-bottom:4px;}
+.band-num-label{display:block;font-family:var(--font-sans);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ash-mauve);}
+.band-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(24px,2.8vw,34px);line-height:1.2;letter-spacing:-0.01em;color:var(--bone-white);margin:0 0 20px;}
+.band-title em{font-style:italic;color:var(--ether-gold);}
+.band-lead{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;line-height:1.8;color:#8A8580;margin:0 0 28px;}
+.band-body p{font-family:var(--font-body);font-size:14px;line-height:1.8;color:#8A8580;}
+.band-body p a,.inline-link{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);transition:color 200ms,border-color 200ms;}
+.band-body p a:hover,.inline-link:hover{color:var(--ether-gold);border-color:rgba(199,168,109,0.4);}
+
+/* ── Workflow steps ── */
+.workflow{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.workflow-step{padding:24px 0 24px 28px;border-left:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.05);position:relative;}
+.workflow-step:last-child{border-bottom:none;}
+.workflow-step::before{content:"";position:absolute;left:-4px;top:28px;width:7px;height:7px;border-radius:999px;background:var(--storm-teal);}
+.workflow-num{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:8px;font-weight:500;}
+.workflow-title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0 0 8px;line-height:1.25;}
+.workflow-body{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;margin:0;}
+.workflow-arrow{font-family:var(--font-mono);font-size:12px;color:var(--storm-teal);}
+
+/* ── Feature grid ── */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:8px;}
+@media(max-width:768px){.feature-grid{grid-template-columns:1fr;}}
+.feature-card{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:32px 28px;display:flex;flex-direction:column;gap:10px;}
+.feature-card .icon{width:40px;height:40px;color:var(--storm-teal);margin-bottom:4px;}
+.feature-card .label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);font-weight:500;}
+.feature-card .title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0;line-height:1.2;}
+.feature-card .body{font-family:var(--font-body);font-size:13px;line-height:1.75;color:#8A8580;margin:0;}
+
+/* ── Fields list ── */
+.fields{margin:0;padding:0;}
+.field-row{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.field-row:last-child{border-bottom:none;}
+.field-name{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bone-white);font-weight:500;padding-top:2px;}
+.field-desc{font-family:var(--font-body);font-size:14px;line-height:1.7;color:#8A8580;margin:0;}
+.field-desc em{font-style:italic;color:var(--fg-4);}
+.fields-note{font-family:var(--font-body);font-size:13px;line-height:1.7;color:#555C64;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);}
+.fields-note a{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);}
+
+/* ── Timeline ── */
+.timeline{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;}
+.timeline-phase{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.timeline-phase:last-child{border-bottom:none;}
+.timeline-meta{display:flex;flex-direction:column;gap:6px;padding-top:2px;}
+.timeline-week{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ether-gold);font-weight:500;}
+.timeline-status{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#555C64;}
+.timeline-status .dot{width:5px;height:5px;border-radius:999px;background:var(--storm-teal);}
+.timeline-title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0 0 8px;line-height:1.2;}
+.timeline-body{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;margin:0;}
+
+/* ── FAQ (flat) ── */
+.faq{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.faq-item{padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{font-family:var(--font-serif);font-weight:600;font-size:19px;color:var(--bone-white);margin:0 0 10px;line-height:1.3;}
+.faq-a{font-family:var(--font-body);font-size:14px;line-height:1.8;color:#8A8580;}
+.faq-a a{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);}
+
+/* ── Help jump nav ── */
+.help-jump{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px;}
+.help-jump li a{display:grid;grid-template-columns:48px 1fr 24px;align-items:center;gap:16px;padding:16px 18px;background:#161A1D;border:1px solid rgba(255,255,255,0.05);text-decoration:none;transition:background 200ms,border-color 200ms;}
+.help-jump li a:hover{background:#1A1F23;border-color:rgba(53,92,99,0.25);}
+.hj-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--ether-gold);font-weight:500;}
+.hj-title{font-family:var(--font-serif);font-weight:500;font-size:17px;color:var(--bone-white);}
+.hj-arr{font-family:var(--font-mono);font-size:12px;color:#555C64;}
+
+/* ── Feature deep ── */
+.feature-deep{display:grid;grid-template-columns:100px 1fr 240px;gap:36px;align-items:start;padding:32px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.feature-deep:last-child{border-bottom:none;}
+@media(max-width:900px){.feature-deep{grid-template-columns:1fr;}}
+.fd-diagram{width:100px;height:100px;color:var(--storm-teal);opacity:0.7;}
+.fd-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:8px;font-weight:500;}
+.fd-title{font-family:var(--font-serif);font-weight:600;font-size:22px;color:var(--bone-white);margin:0 0 10px;line-height:1.2;}
+.fd-body{font-family:var(--font-body);font-size:14px;line-height:1.8;color:#8A8580;margin:0;}
+.fd-usecase{background:#161A1D;border:1px solid rgba(255,255,255,0.05);border-left:2px solid var(--ether-gold);padding:20px 22px;}
+.uc-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:8px;font-weight:500;}
+.uc-body{font-family:var(--font-body);font-size:13px;line-height:1.75;color:#8A8580;}
+
+/* ── Training path ── */
+.training{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.training-row{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.training-row:last-child{border-bottom:none;}
+.training-when{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ether-gold);font-weight:500;padding-top:2px;}
+.training-text{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;}
+.training-text em{font-style:italic;color:var(--fg-4);}
+
+/* ── Pricing ── */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px;}
+@media(max-width:768px){.pricing-grid{grid-template-columns:1fr;}}
+.price-card{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:36px 32px;display:flex;flex-direction:column;gap:0;}
+.price-card--featured{background:#1A2420;border-color:rgba(53,92,99,0.35);}
+.price-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:10px;font-weight:500;}
+.price-title{font-family:var(--font-serif);font-weight:600;font-size:28px;color:var(--bone-white);margin:0 0 16px;line-height:1.1;}
+.price-amount{font-family:var(--font-serif);font-weight:500;font-size:52px;color:var(--bone-white);line-height:1;letter-spacing:-0.02em;margin-bottom:4px;}
+.price-amount .currency{font-size:28px;vertical-align:top;padding-top:10px;display:inline-block;color:var(--fg-3);}
+.price-unit{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#555C64;margin-bottom:18px;}
+.price-tagline{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:15px;line-height:1.7;color:#8A8580;padding:16px 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);margin-bottom:20px;}
+.price-list{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:8px;}
+.price-list li{font-family:var(--font-body);font-size:13px;line-height:1.6;color:#8A8580;padding-left:16px;position:relative;}
+.price-list li::before{content:"—";position:absolute;left:0;color:var(--storm-teal);font-family:var(--font-mono);}
+.price-cta{margin-top:auto;}
+.price-optional{background:#0E1113;border:1px solid rgba(255,255,255,0.05);border-left:2px solid var(--ether-gold);padding:28px 32px;margin-top:2px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;}
+.po-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:8px;font-weight:500;}
+.po-title{font-family:var(--font-serif);font-weight:600;font-size:22px;color:var(--bone-white);margin:0 0 10px;}
+.po-body{font-family:var(--font-body);font-size:13px;line-height:1.75;color:#8A8580;margin:0;}
+.po-price{font-family:var(--font-serif);font-weight:500;font-size:32px;color:var(--bone-white);white-space:nowrap;text-align:right;flex-shrink:0;}
+.po-price .unit{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#555C64;font-weight:400;}
+
+/* ── Compare table ── */
+.compare{width:100%;border-collapse:collapse;margin-top:8px;font-family:var(--font-body);font-size:13px;}
+.compare thead th{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555C64;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);}
+.compare thead th:first-child{width:50%;}
+.compare .plan-label{color:var(--bone-white);}
+.compare tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);}
+.compare tbody tr:hover{background:rgba(255,255,255,0.015);}
+.compare tbody th{padding:10px 16px;text-align:left;color:#8A8580;font-weight:400;}
+.compare tbody td{padding:10px 16px;color:#8A8580;text-align:center;}
+.compare .yes{color:var(--storm-teal);font-size:16px;}
+.compare .no{color:#2B3137;}
+.compare .section-row th{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ether-gold);padding-top:20px;font-weight:500;}
+.compare .section-row td{padding-top:20px;}
+
+/* ── Contact block ── */
+.contact-block{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px;}
+@media(max-width:768px){.contact-block{grid-template-columns:1fr;}}
+.contact-block > div{background:#161A1D;border:1px solid rgba(255,255,255,0.05);padding:28px 28px;}
+.cb-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);margin-bottom:10px;font-weight:500;}
+.cb-title{font-family:var(--font-serif);font-weight:600;font-size:20px;color:var(--bone-white);margin:0 0 10px;line-height:1.3;}
+.cb-body{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#8A8580;margin:0;}
+.cb-body a{color:var(--storm-teal);border-bottom:1px solid rgba(53,92,99,0.4);}
+
+/* ── Principle band ── */
+.principle-band{padding:48px 0;background:var(--deep-forest);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);}
+.principle-inner{display:flex;align-items:center;gap:20px;max-width:800px;}
+.principle-mark{font-family:var(--font-serif);font-size:20px;color:var(--ether-gold);flex-shrink:0;opacity:0.6;}
+.principle-line{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:20px;line-height:1.65;color:rgba(244,241,234,0.75);margin:0;}
+
+/* ── CTA section ── */
+.cta-section{padding:80px 0;text-align:center;background:var(--deep-forest);position:relative;overflow:hidden;}
+.cta-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 500px 300px at 50% 50%,rgba(199,168,109,0.06) 0%,transparent 70%);pointer-events:none;}
+.cta-inner{max-width:600px;margin:0 auto;position:relative;}
+.cta-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ether-gold);margin-bottom:16px;font-weight:500;}
+.cta-title{font-family:var(--font-serif);font-weight:500;font-size:clamp(28px,3vw,38px);line-height:1.2;color:var(--bone-white);margin:0 0 14px;letter-spacing:-0.01em;}
+.cta-title em{font-style:italic;color:var(--ether-gold);}
+.cta-body{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:16px;line-height:1.75;color:rgba(244,241,234,0.6);margin:0 0 28px;}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-sub{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(244,241,234,0.3);margin-top:16px;}
+
+/* ── Further reading strip ── */
+.further{padding:48px 0;background:#0A0C0E;border-top:1px solid rgba(255,255,255,0.04);}
+.further-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#3D444A;margin-bottom:20px;}
+.further-links{display:flex;gap:2px;}
+.further-link{flex:1;display:flex;flex-direction:column;gap:6px;padding:20px 22px;background:#111315;border:1px solid rgba(255,255,255,0.04);text-decoration:none;transition:background 200ms,border-color 200ms;}
+.further-link:hover{background:#161A1D;border-color:rgba(53,92,99,0.2);}
+.further-link .lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--storm-teal);font-weight:500;}
+.further-link .txt{font-family:var(--font-body);font-size:13px;line-height:1.5;color:#6F7178;}
+.further-link .arr{font-family:var(--font-mono);font-size:11px;color:#3D444A;margin-top:4px;}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border:1px solid var(--bone-white);background:var(--bone-white);color:var(--obsidian-ink);font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:all 200ms;border-radius:2px;text-decoration:none;}
+.btn:hover{background:transparent;color:var(--bone-white);}
+.btn--sec{background:transparent;color:var(--bone-white);border-color:rgba(244,241,234,0.25);}
+.btn--sec:hover{border-color:var(--bone-white);}
+.btn--teal{background:var(--storm-teal);border-color:var(--storm-teal);color:var(--bone-white);}
+.btn--teal:hover{background:transparent;color:var(--storm-teal);}
+.btn-group{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ── Footer ── */
+.site-footer{background:#0A0C0E;padding:28px 0;border-top:1px solid rgba(255,255,255,0.04);}
+.footer-row{display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3D444A;}
+.footer-links{display:flex;gap:24px;}
+.footer-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#3D444A;transition:color 200ms;}
+.footer-link:hover{color:#6F7178;}</style>
+</head><body>
+<header class="site-header"><div class="container header-row">
+  <a class="logo" href="https://arke.systems"><div class="logo-mark">◆</div><div class="logo-word">ARKE</div><div class="logo-pipe">Partner</div></a>
+  <nav class="subnav">
+    <a class="subnav-link is-active" href="/partner/">Overview</a>
+    <a class="subnav-link" href="/partner/pilot/">Pilot</a>
+    <a class="subnav-link" href="/partner/advanced/">Advanced</a>
+    <a class="subnav-link" href="/partner/pricing/">Pricing</a>
+    <a class="subnav-link" href="/partner/help/">Help</a>
+    <a class="subnav-cta" href="/partner/pilot/">Request Pilot →</a>
+  </nav>
+</div></header>
+<main><section class="page-hero">
+  <div class="container"><div class="hero-inner">
+    <a class="back-link" href="https://arke.systems/partner">← All Systems</a>
+    <div class="hero-eyebrow">ARKE | Partner</div>
+    <h1 class="page-title">Deal pipeline infrastructure. <em>White-labelled for your team.</em></h1>
+    <p class="page-lead">A pipeline architecture for hardware companies — built on BrielOS, deployable in days, calibrated to the way your team actually sells. Test it free for four weeks.</p>
+    <div class="hero-actions">
+      <a class="btn btn--teal" href="/partner/pilot/">Explore the Pilot →</a>
+      <a class="btn btn--sec" href="/partner/pricing/">See Pricing</a>
+    </div>
+  </div></div>
+</section>
+
+<!-- Executive Scan Layer: Problem → Infrastructure → Outcome -->
+<section style="padding:64px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;">
+      <div style="padding:36px 32px;background:#161A1D;border:1px solid rgba(255,255,255,0.05);">
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;font-weight:600;color:#8B7E86;margin-bottom:14px;">Problem</div>
+        <div style="font-family:var(--font-serif);font-weight:500;font-size:20px;line-height:1.3;color:var(--bone-white);margin:0 0 10px;">Sales teams operate on spreadsheets and tribal knowledge.</div>
+        <p style="font-family:var(--font-body);font-size:13px;line-height:1.8;color:#8A8580;margin:0;">Deals live in someone's inbox and three versions of a spreadsheet. Forecasts are guesses. Leadership has no reliable view of what's actually moving.</p>
+      </div>
+      <div style="padding:36px 32px;background:#161A1D;border:1px solid rgba(255,255,255,0.05);">
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;font-weight:600;color:var(--storm-teal);margin-bottom:14px;">Infrastructure</div>
+        <div style="font-family:var(--font-serif);font-weight:500;font-size:20px;line-height:1.3;color:var(--bone-white);margin:0 0 10px;">Pipeline architecture that makes channel activity visible.</div>
+        <p style="font-family:var(--font-body);font-size:13px;line-height:1.8;color:#8A8580;margin:0;">A white-labelled partner dashboard — Kanban stages, deal list, and pipeline intelligence — deployable in days, calibrated to how your team actually sells.</p>
+      </div>
+      <div style="padding:36px 32px;background:#1A2420;border:1px solid rgba(53,92,99,0.25);">
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;font-weight:600;color:var(--ether-gold);margin-bottom:14px;">Outcome</div>
+        <div style="font-family:var(--font-serif);font-weight:500;font-size:20px;line-height:1.3;color:var(--bone-white);margin:0 0 10px;">Partners operate autonomously. Revenue becomes predictable.</div>
+        <p style="font-family:var(--font-body);font-size:13px;line-height:1.8;color:#8A8580;margin:0;">Channel partners manage their own pipelines without expanding your central operations team. Deals move faster because the architecture makes the next step obvious.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container band-grid">
+    <div class="band-rail"><span class="band-num">§ 01</span><span class="band-num-label">The Problem</span></div>
+    <div class="band-body">
+      <h2 class="band-title">Your pipeline isn't broken. <em>It's invisible.</em></h2>
+      <p class="band-lead">Most hardware sales teams operate on a substrate of spreadsheets, inbox threads, and tribal knowledge. The work is real. The architecture beneath it is not.</p>
+      <div class="workflow">
+        <div class="workflow-step"><div class="workflow-num">◆ · Distortion 01</div><h3 class="workflow-title">Tracking is manual.</h3><p class="workflow-body">Deals live in someone's head, someone's inbox, and three versions of a spreadsheet. Forecasts are guesses dressed as numbers.</p></div>
+        <div class="workflow-step"><div class="workflow-num">◆ · Distortion 02</div><h3 class="workflow-title">Stages are vague.</h3><p class="workflow-body">"In progress" covers everything from first email to signed PO. Without clear stages, nobody knows what's actually moving.</p></div>
+        <div class="workflow-step"><div class="workflow-num">◆ · Distortion 03</div><h3 class="workflow-title">Signal decays.</h3><p class="workflow-body">Important deals get lost behind urgent ones. By the time you notice the gap, the quarter is already shaped by it.</p></div>
+      </div>
+      <p style="margin-top:32px;">These are structural problems — not motivation problems, not headcount problems. <a class="inline-link" href="/partner/pilot/">A pilot</a> reveals which layer is actually fractured.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--alt">
+  <div class="container band-grid">
+    <div class="band-rail"><span class="band-num">§ 02</span><span class="band-num-label">What's Included</span></div>
+    <div class="band-body">
+      <h2 class="band-title">Four surfaces. <em>One architecture.</em></h2>
+      <p class="band-lead">ARKE | Partner ships as a coherent system — not a feature list. Each surface answers one question; together, they replace the spreadsheet substrate entirely.</p>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="icon"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="8" height="36"/><rect x="18" y="14" width="8" height="30"/><rect x="30" y="20" width="8" height="24"/><rect x="42" y="26" width="6" height="18"/><line x1="4" y1="44" x2="50" y2="44"/></svg></div>
+          <span class="label">◆ Pipeline</span><h3 class="title">Kanban-style stages.</h3>
+          <p class="body">Registered → Qualified → Quoted → Won. Drag a deal forward; the whole team sees it move. No status meetings required.</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="40" height="36"/><line x1="6" y1="18" x2="46" y2="18"/><line x1="6" y1="26" x2="46" y2="26"/><line x1="6" y1="34" x2="46" y2="34"/><line x1="18" y1="8" x2="18" y2="44"/><line x1="32" y1="8" x2="32" y2="44"/></svg></div>
+          <span class="label">◆ Deal List</span><h3 class="title">Tabular view, filtered.</h3>
+          <p class="body">Every deal, every field, sortable and filterable. The view operators reach for when they want the whole truth at once.</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="26" r="18"/><path d="M 26 26 L 26 8"/><path d="M 26 26 L 42 26"/><path d="M 26 26 L 14 38"/></svg></div>
+          <span class="label">◆ Dashboard</span><h3 class="title">Pipeline health, at a glance.</h3>
+          <p class="body">Stage distribution. Deal velocity. Value in motion. One screen that tells you where the quarter actually stands.</p>
+        </article>
+        <article class="feature-card">
+          <div class="icon"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="40" height="36"/><line x1="6" y1="20" x2="46" y2="20"/><line x1="14" y1="6" x2="14" y2="14"/><line x1="38" y1="6" x2="38" y2="14"/><circle cx="18" cy="30" r="1.5" fill="currentColor"/><circle cx="30" cy="30" r="1.5" fill="currentColor"/><circle cx="30" cy="38" r="1.5" fill="currentColor"/></svg></div>
+          <span class="label">◆ Calendar</span><h3 class="title">Follow-ups, made structural.</h3>
+          <p class="body">Renewal dates, follow-up windows, close targets — laid against time so nothing important goes quietly missing.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container band-grid">
+    <div class="band-rail"><span class="band-num">§ 03</span><span class="band-num-label">How It Works</span></div>
+    <div class="band-body">
+      <h2 class="band-title">Clear Signal Design™. <em>Three movements.</em></h2>
+      <p class="band-lead">Every ARKE system follows the same diagnostic and deployment logic. The method is what makes the architecture portable — across companies, across teams, across time.</p>
+      <div class="workflow">
+        <div class="workflow-step"><div class="workflow-num">01 · Diagnosis</div><h3 class="workflow-title">Find the fractured substrate.</h3><p class="workflow-body">Map where signal actually breaks — not surface symptoms, but structural distortion. The pilot is the diagnostic instrument.</p></div>
+        <div class="workflow-step"><div class="workflow-num">02 · Distillation</div><h3 class="workflow-title">Eliminate noise aggressively.</h3><p class="workflow-body">Preserve only what carries signal. Six fields, four stages, one dashboard — and ruthlessly defended boundaries on each.</p></div>
+        <div class="workflow-step"><div class="workflow-num">03 · Deployment</div><h3 class="workflow-title">Launch the autonomous system.</h3><p class="workflow-body">The architecture works independently of any one operator. Decision-making becomes reliable. Scale happens without heroic effort.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="principle-band"><div class="container principle-inner">
+  <div class="principle-mark">◆</div>
+  <p class="principle-line">When you fix the architecture, clarity follows. The pipeline you see is the pipeline you can shape.</p>
+</div></div>
+
+<section class="band">
+  <div class="container band-grid">
+    <div class="band-rail"><span class="band-num">§ 04</span><span class="band-num-label">Who It's For</span></div>
+    <div class="band-body">
+      <h2 class="band-title">Hardware companies. <em>Small teams selling real things.</em></h2>
+      <p>ARKE | Partner was built for hardware businesses — companies whose deals carry weight, shipping logistics, and quarter-shaped cycles. If your sales team is between three and thirty people, if forecasting is currently a quarterly act of guesswork, if you've outgrown the spreadsheet but a full CRM is overkill — this is for you.</p>
+      <p>It is white-label by design. Your team sees your brand, not ours. The substrate is BrielOS; the surface is yours.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section"><div class="container"><div class="cta-inner">
+  <div class="cta-eyebrow">Test before you commit</div>
+  <h2 class="cta-title">Start with a four-week pilot. <em>Free, with no commitment.</em></h2>
+  <p class="cta-body">The pilot is how we prove the architecture against your actual deals. By week four, you'll know whether to deploy, iterate, or part well.</p>
+  <div class="cta-actions">
+    <a class="btn" href="/partner/pilot/">Explore the Pilot →</a>
+    <a class="btn btn--sec" href="/partner/pricing/">See Pricing</a>
+  </div>
+  <p class="cta-sub">Reply within 24 hours · Setup in ~30 minutes</p>
+</div></div></section>
+
+<div class="further"><div class="container">
+  <div class="further-label">Keep reading</div>
+  <div class="further-links">
+    <a class="further-link" href="/partner/pilot/"><span class="lbl">Pilot</span><span class="txt">Four weeks, free, no commitment</span><span class="arr">→</span></a>
+    <a class="further-link" href="/partner/advanced/"><span class="lbl">Advanced</span><span class="txt">Power features for when you scale</span><span class="arr">→</span></a>
+    <a class="further-link" href="/partner/pricing/"><span class="lbl">Pricing</span><span class="txt">Transparent, one-time deployment fees</span><span class="arr">→</span></a>
+    <a class="further-link" href="/partner/help/"><span class="lbl">Help</span><span class="txt">Answers to every common question</span><span class="arr">→</span></a>
+  </div>
+</div></div></main>
+<footer class="site-footer"><div class="container footer-row">
+  <div class="footer-brand">© 2026 BRIEL STRATEGIES LLC · ARKE SYSTEMS · CLEAR SIGNAL DESIGN™</div>
+  <div class="footer-links">
+    <a class="footer-link" href="https://arke.systems">Systems</a>
+    <a class="footer-link" href="/partner/">Partner</a>
+    <a class="footer-link" href="https://brielos.com">BrielOS</a>
+  </div>
+</div></footer>
+</body></html>
