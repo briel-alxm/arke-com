@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARKE | Intake · UI Kit</title>
+<style>
+/* ============================================================
+   ARKE | Partner — shared tokens
+   ============================================================ */
+:root {
+  --obsidian-ink:   #111315;
+  --iron-slate:     #2B3137;
+  --soft-graphite:  #4A525A;
+  --bone-white:     #F4F1EA;
+  --bone-white-2:   #EDE8DE;
+  --vellum:         #FAF7F0;
+  --deep-forest:    #1F3B34;
+  --storm-teal:     #355C63;
+  --lunar-blue:     #667A8A;
+  --ash-mauve:      #8B7E86;
+  --ether-gold:     #C7A86D;
+  --oxide-copper:   #9A6A4A;
+  --pale-sage:      #C7D1C2;
+  --rule:           #DDD9D1;
+  --rule-strong:    #C6C0B4;
+  --font-serif:     "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans:      "Tenor Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono:      "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-body:      "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --fg-3:           #6F7178;
+  --fg-4:           #8A8F96;
+  --ease-out:       cubic-bezier(0.2, 0.6, 0.2, 1);
+  --dur-base:       200ms;
+  --dur-slow:       400ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--vellum);
+  color: var(--obsidian-ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--ether-gold); color: var(--obsidian-ink); }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+</style>
+<style>
+/* ============================================================
+   ARKE | Intake — namespaced styles (.ai-*)
+   ============================================================ */
+.ai-app { min-height: 100vh; font-family: var(--font-body); }
+.ai-screen { min-height: 100vh; }
+.ai-screen--vellum { background: var(--vellum); color: var(--obsidian-ink); }
+.ai-screen--obsidian { background: var(--obsidian-ink); color: var(--bone-white); }
+.ai-container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+/* Header */
+.ai-header { background: #fff; border-bottom: 1px solid var(--rule); padding: 24px 0; }
+.ai-header-row { display: flex; justify-content: space-between; align-items: center; }
+.ai-brand { display: inline-flex; align-items: center; gap: 12px; cursor: pointer; }
+.ai-brand-mark { width: 32px; height: 32px; background: var(--storm-teal); color: var(--bone-white); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-weight: 700; font-size: 18px; line-height: 1; border-radius: 2px; }
+.ai-brand-word { font-family: var(--font-serif); font-weight: 600; font-size: 22px; letter-spacing: 0.06em; color: var(--obsidian-ink); }
+.ai-brand-rubric { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-3); padding-left: 12px; border-left: 1px solid var(--rule); margin-left: 4px; }
+.ai-back { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); text-decoration: none; cursor: pointer; transition: color 200ms var(--ease-out); }
+.ai-back:hover { color: var(--oxide-copper); }
+
+/* Hero */
+.ai-hero { padding: 56px 0 32px; max-width: 720px; }
+.ai-eyebrow { display: inline-block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--oxide-copper); margin-bottom: 18px; font-weight: 500; }
+.ai-title { font-family: var(--font-serif); font-weight: 500; font-size: clamp(36px, 4.4vw, 48px); line-height: 1.12; letter-spacing: -0.01em; color: var(--obsidian-ink); margin: 0 0 18px; }
+.ai-subtitle { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 18px; line-height: 1.7; color: var(--soft-graphite); max-width: 580px; margin: 0; }
+
+/* Form */
+.ai-form-wrap { background: #fff; border: 1px solid var(--rule); padding: 40px 44px; max-width: 720px; margin: 12px 0 64px; }
+.ai-form-header { padding-bottom: 22px; margin-bottom: 28px; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: baseline; }
+.ai-form-header h2 { font-family: var(--font-serif); font-weight: 600; font-size: 24px; color: var(--obsidian-ink); margin: 0; }
+.ai-form-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); }
+.ai-section-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ether-gold); font-weight: 600; margin: 24px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--bone-white-2); }
+.ai-section-label:first-of-type { margin-top: 0; }
+.ai-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.ai-row--single { grid-template-columns: 1fr; }
+.ai-field { display: flex; flex-direction: column; gap: 6px; }
+.ai-field label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); font-weight: 500; }
+.ai-field input, .ai-field textarea, .ai-field select { font-family: var(--font-body); font-size: 14px; color: var(--obsidian-ink); padding: 12px 14px; background: #fff; border: 1px solid var(--rule); border-radius: 2px; outline: none; transition: border-color 200ms var(--ease-out); }
+.ai-field input:focus, .ai-field textarea:focus, .ai-field select:focus { border-color: var(--storm-teal); }
+.ai-field .hint { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-4); }
+.ai-radios { display: flex; gap: 10px; flex-wrap: wrap; }
+.ai-radio { flex: 1; min-width: 120px; display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: #fff; border: 1px solid var(--rule); border-radius: 2px; cursor: pointer; transition: all 200ms var(--ease-out); }
+.ai-radio.is-active { border-color: var(--storm-teal); background: rgba(53, 92, 99, 0.04); }
+.ai-radio-label { font-family: var(--font-serif); font-weight: 600; font-size: 14px; color: var(--obsidian-ink); }
+.ai-radio-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-4); }
+.ai-form-actions { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
+.ai-form-note { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-4); }
+
+/* Timeline */
+.ai-timeline { background: #fff; border: 1px solid var(--rule); padding: 22px 28px; margin: 0 0 18px; max-width: 720px; position: relative; }
+.ai-timeline-head { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ether-gold); font-weight: 600; margin-bottom: 16px; }
+.ai-timeline-track { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+.ai-timeline-track::before { content: ""; position: absolute; left: 14px; right: 14px; top: 9px; height: 1px; background: var(--rule); z-index: 0; }
+.ai-timeline-step { display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 1; padding-right: 18px; }
+.ai-timeline-step:last-child { padding-right: 0; }
+.ai-timeline-dot { width: 18px; height: 18px; border-radius: 999px; background: #fff; border: 1px solid var(--rule); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--fg-4); letter-spacing: 0; }
+.ai-timeline-step.is-now .ai-timeline-dot { background: var(--ether-gold); border-color: var(--ether-gold); color: var(--obsidian-ink); }
+.ai-timeline-step.is-done .ai-timeline-dot { background: var(--deep-forest); border-color: var(--deep-forest); color: var(--bone-white); }
+.ai-timeline-when { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-4); font-weight: 500; }
+.ai-timeline-what { font-family: var(--font-serif); font-weight: 600; font-size: 16px; color: var(--obsidian-ink); line-height: 1.25; }
+.ai-timeline-detail { font-family: var(--font-body); font-size: 12px; line-height: 1.55; color: var(--soft-graphite); }
+
+/* Buttons */
+.ai-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 26px; border: 1px solid var(--obsidian-ink); background: var(--obsidian-ink); color: var(--bone-white); font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; transition: all 200ms var(--ease-out); border-radius: 2px; }
+.ai-btn:hover { background: transparent; color: var(--obsidian-ink); }
+.ai-btn--sec { background: transparent; color: var(--obsidian-ink); }
+.ai-btn--sec:hover { background: var(--obsidian-ink); color: var(--bone-white); }
+
+/* Confirmation */
+.ai-confirm-wrap { display: flex; align-items: center; justify-content: center; padding: 80px 0; }
+.ai-confirm { background: #fff; border: 1px solid var(--rule); padding: 56px 52px 48px; max-width: 620px; text-align: center; }
+.ai-confirm-mark { width: 56px; height: 56px; border: 1px solid var(--deep-forest); color: var(--deep-forest); border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 28px; font-weight: 300; margin: 0 auto 24px; }
+.ai-confirm h1 { font-family: var(--font-serif); font-weight: 500; font-size: 36px; color: var(--obsidian-ink); margin: 0 0 12px; }
+.ai-confirm .lead { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 17px; line-height: 1.65; color: var(--iron-slate); margin: 0 0 28px; }
+.ai-next-steps { background: var(--bone-white-2); padding: 24px 28px; margin: 0 0 28px; text-align: left; border-left: 2px solid var(--ether-gold); }
+.ai-next-steps h3 { font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ether-gold); margin: 0 0 14px; }
+.ai-next-steps ol { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+.ai-next-steps li { counter-increment: step; padding: 8px 0 8px 32px; position: relative; font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--iron-slate); }
+.ai-next-steps li::before { content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: 8px; font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: var(--storm-teal); }
+.ai-next-steps li strong { color: var(--obsidian-ink); font-weight: 600; }
+
+/* Footer */
+.ai-footer { background: #fff; border-top: 1px solid var(--rule); padding: 28px; text-align: center; }
+.ai-footer p { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); margin: 0; }
+
+/* Queue shell */
+.ai-shell { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+.ai-sidebar { background: var(--iron-slate); color: var(--bone-white); padding: 28px 22px; border-right: 1px solid #1A1F24; display: flex; flex-direction: column; }
+.ai-side-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 36px; }
+.ai-side-brand .mark { width: 26px; height: 26px; background: var(--ether-gold); color: var(--obsidian-ink); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-weight: 700; font-size: 16px; border-radius: 2px; }
+.ai-side-brand .word { font-family: var(--font-serif); font-weight: 600; font-size: 18px; letter-spacing: 0.06em; color: var(--bone-white); }
+.ai-side-section { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: #6F7178; margin: 18px 0 8px; font-weight: 500; }
+.ai-side-link { display: flex; justify-content: space-between; align-items: center; padding: 9px 10px; margin: 2px -10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #B7B0A4; cursor: pointer; transition: background 200ms var(--ease-out), color 200ms var(--ease-out); border-left: 2px solid transparent; }
+.ai-side-link:hover { color: var(--bone-white); background: rgba(255,255,255,0.03); }
+.ai-side-link.is-active { color: var(--ether-gold); background: rgba(199,168,109,0.06); border-left-color: var(--ether-gold); }
+.ai-side-count { font-family: var(--font-mono); font-size: 10px; color: #6F7178; }
+.ai-side-footer { margin-top: auto; padding-top: 24px; border-top: 1px solid #1A1F24; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em; color: #6F7178; line-height: 1.6; }
+
+/* Queue main */
+.ai-main { padding: 36px 48px 64px; }
+.ai-main-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 22px; border-bottom: 1px solid #2B3137; margin-bottom: 28px; }
+.ai-main-title { font-family: var(--font-serif); font-weight: 500; font-size: 36px; color: var(--bone-white); margin: 0 0 4px; letter-spacing: -0.01em; }
+.ai-main-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #6F7178; }
+.ai-status-bar { display: flex; gap: 18px; }
+.ai-stat { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+.ai-stat-value { font-family: var(--font-mono); font-weight: 600; font-size: 24px; color: var(--bone-white); letter-spacing: 0.02em; }
+.ai-stat-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: #6F7178; }
+
+/* Cases table */
+.ai-cases { display: flex; flex-direction: column; }
+.ai-case-head, .ai-case-row { display: grid; grid-template-columns: 60px 1.6fr 1fr 90px 130px 80px; gap: 18px; padding: 14px 18px; align-items: center; }
+.ai-case-head { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #6F7178; border-bottom: 1px solid #2B3137; }
+.ai-case-row { border-bottom: 1px solid #1F2429; cursor: pointer; transition: background 200ms var(--ease-out); }
+.ai-case-row:hover { background: rgba(255,255,255,0.025); }
+.ai-case-row.is-active { background: rgba(199,168,109,0.04); border-left: 2px solid var(--ether-gold); padding-left: 16px; }
+.ai-case-id { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--ether-gold); }
+.ai-case-name { font-family: var(--font-serif); font-weight: 500; font-size: 16px; color: var(--bone-white); line-height: 1.3; }
+.ai-case-sub { font-family: var(--font-body); font-size: 12px; color: #8A8580; margin-top: 2px; }
+.ai-case-region { font-family: var(--font-body); font-size: 13px; color: #B7B0A4; }
+.ai-case-score-cell { font-family: var(--font-mono); display: flex; align-items: center; gap: 8px; }
+.ai-score { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-weight: 600; font-size: 14px; color: var(--bone-white); }
+.ai-score-bar { width: 36px; height: 4px; background: #2B3137; position: relative; overflow: hidden; }
+.ai-score-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--storm-teal); }
+.ai-score--high .ai-score-fill { background: var(--ether-gold); }
+.ai-score--med  .ai-score-fill { background: var(--storm-teal); }
+.ai-score--low  .ai-score-fill { background: var(--ash-mauve); }
+.ai-status { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; padding: 4px 8px; border-radius: 2px; display: inline-flex; align-items: center; gap: 5px; }
+.ai-status-dot { width: 5px; height: 5px; border-radius: 999px; background: currentColor; }
+.ai-status--new      { background: rgba(53,92,99,0.18); color: #98C0CB; }
+.ai-status--review   { background: rgba(199,168,109,0.18); color: var(--ether-gold); }
+.ai-status--qualified{ background: rgba(31,59,52,0.32); color: #8ABFA7; }
+.ai-status--declined { background: rgba(154,106,74,0.18); color: #D08F66; }
+.ai-case-age { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: #6F7178; text-align: right; }
+
+/* Case detail */
+.ai-detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; margin-top: 24px; }
+.ai-detail-card { background: var(--iron-slate); border: 1px solid #1A1F24; padding: 28px 30px; }
+.ai-detail-card h3 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ether-gold); font-weight: 600; margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid #1A1F24; }
+.ai-detail-row { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid #1A1F24; }
+.ai-detail-row:last-child { border-bottom: none; }
+.ai-detail-key { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #6F7178; }
+.ai-detail-val { font-family: var(--font-body); font-size: 14px; color: var(--bone-white); line-height: 1.5; }
+.ai-detail-val.serif { font-family: var(--font-serif); font-weight: 500; font-size: 18px; }
+.ai-score-block { display: flex; flex-direction: column; gap: 14px; margin: 4px 0 22px; }
+.ai-score-headline { font-family: var(--font-serif); font-weight: 500; font-size: 56px; color: var(--ether-gold); line-height: 1; letter-spacing: -0.02em; }
+.ai-score-headline span { font-family: var(--font-mono); font-size: 14px; color: #6F7178; letter-spacing: 0.18em; margin-left: 6px; }
+.ai-score-line { display: flex; flex-direction: column; gap: 4px; }
+.ai-score-line-label { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; }
+.ai-score-line-label .k { color: #6F7178; }
+.ai-score-line-label .v { color: var(--bone-white); }
+.ai-score-line-bar { height: 4px; background: #1A1F24; position: relative; overflow: hidden; }
+.ai-score-line-bar > div { position: absolute; left: 0; top: 0; bottom: 0; background: var(--storm-teal); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+/* ── Header ─────────────────────────────────────────────── */
+function IntakeHeader({ onBack }) {
+  return (
+    <header className="ai-header">
+      <div className="ai-container ai-header-row">
+        <div className="ai-brand" onClick={onBack}>
+          <div className="ai-brand-mark">◆</div>
+          <div className="ai-brand-word">ARKE</div>
+          <div className="ai-brand-rubric">Intake · Case Qualification</div>
+        </div>
+        <a className="ai-back" onClick={onBack}>← Back to BrielOS</a>
+      </div>
+    </header>
+  );
+}
+
+function IntakeFooter() {
+  return (
+    <footer className="ai-footer">
+      <p>ARKE · Intake Qualification System · arke.systems</p>
+    </footer>
+  );
+}
+
+/* ── Timeline ────────────────────────────────────────────── */
+function ExpectationsTimeline() {
+  const steps = [
+    { state: "now", when: "Now", what: "You submit", detail: "Tell us about your case — a paragraph is plenty." },
+    { state: "next", when: "Today", what: "We read it", detail: "A real person reviews and scores for signal." },
+    { state: "next", when: "By tomorrow", what: "You hear back", detail: "Qualification decision, by email or phone." }
+  ];
+  return (
+    <div className="ai-timeline">
+      <div className="ai-timeline-head">What to expect</div>
+      <div className="ai-timeline-track">
+        {steps.map((s, i) => (
+          <div className={"ai-timeline-step " + (s.state === "now" ? "is-now" : s.state === "done" ? "is-done" : "")} key={i}>
+            <div className="ai-timeline-dot">{i + 1}</div>
+            <div className="ai-timeline-when">{s.when}</div>
+            <div className="ai-timeline-what">{s.what}</div>
+            <div className="ai-timeline-detail">{s.detail}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── IntakeForm ──────────────────────────────────────────── */
+function IntakeForm({ onSubmit }) {
+  const { useState } = React;
+  const [form, setForm] = useState({
+    fullName: "", email: "", phone: "",
+    region: "Charleston, SC", caseType: "Personal Injury",
+    urgency: "moderate", description: ""
+  });
+  const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
+  const urgencies = [
+    { id: "low", label: "Routine", meta: "≥ 30 days" },
+    { id: "moderate", label: "Moderate", meta: "7–30 days" },
+    { id: "high", label: "Urgent", meta: "≤ 7 days" },
+    { id: "critical", label: "Critical", meta: "Statute risk" }
+  ];
+  return (
+    <div className="ai-form-wrap">
+      <div className="ai-form-header">
+        <h2>Case Intake</h2>
+        <span className="ai-form-meta">24h response · signal-scored</span>
+      </div>
+      <p style={{fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'var(--soft-graphite)', margin: '0 0 28px', maxWidth: 540}}>
+        Tell us about your case in your own words. We read every intake personally and respond within 24 hours — there's no chatbot on the other side.
+      </p>
+      <div className="ai-section-label">§ 01 · About you</div>
+      <div className="ai-row">
+        <div className="ai-field">
+          <label>Full Name</label>
+          <input value={form.fullName} onChange={e => set("fullName", e.target.value)} placeholder="Surname, given name"/>
+        </div>
+        <div className="ai-field">
+          <label>Region</label>
+          <input value={form.region} onChange={e => set("region", e.target.value)}/>
+        </div>
+      </div>
+      <div className="ai-row">
+        <div className="ai-field">
+          <label>Email</label>
+          <input type="email" value={form.email} onChange={e => set("email", e.target.value)} placeholder="name@firm.com"/>
+        </div>
+        <div className="ai-field">
+          <label>Phone</label>
+          <input value={form.phone} onChange={e => set("phone", e.target.value)} placeholder="(843) 000 0000"/>
+        </div>
+      </div>
+      <div className="ai-section-label">§ 02 · What happened</div>
+      <div className="ai-row">
+        <div className="ai-field">
+          <label>Case Type</label>
+          <select value={form.caseType} onChange={e => set("caseType", e.target.value)}>
+            <option>Personal Injury</option>
+            <option>Workers' Compensation</option>
+            <option>Medical Malpractice</option>
+            <option>Premises Liability</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div className="ai-field">
+          <label>Urgency Signal</label>
+          <span className="hint">Maps to scoring weight</span>
+        </div>
+      </div>
+      <div className="ai-radios" style={{marginBottom: 14}}>
+        {urgencies.map(u => (
+          <div
+            key={u.id}
+            className={"ai-radio " + (form.urgency === u.id ? "is-active" : "")}
+            onClick={() => set("urgency", u.id)}
+          >
+            <span className="ai-radio-label">{u.label}</span>
+            <span className="ai-radio-meta">{u.meta}</span>
+          </div>
+        ))}
+      </div>
+      <div className="ai-row ai-row--single">
+        <div className="ai-field">
+          <label>Case Description</label>
+          <textarea rows="4" value={form.description} onChange={e => set("description", e.target.value)} placeholder="A paragraph or two is plenty. What happened, when, and what's the situation right now."/>
+          <span className="hint">Plain language · we'd rather hear it as you'd tell a friend</span>
+        </div>
+      </div>
+      <div className="ai-form-actions">
+        <span className="ai-form-note">Reviewed within 24 hours · by a person</span>
+        <button className="ai-btn" onClick={() => onSubmit(form)}>Submit Case →</button>
+      </div>
+    </div>
+  );
+}
+
+/* ── Confirmation ────────────────────────────────────────── */
+function Confirmation({ submission, onReturn }) {
+  return (
+    <div className="ai-confirm-wrap">
+      <div className="ai-confirm">
+        <div className="ai-confirm-mark">✓</div>
+        <h1>Intake Received</h1>
+        <p className="lead">Thank you{submission && submission.fullName ? ", " + submission.fullName.split(" ")[0] : ""}. Your case has been submitted for review. We'll contact you within 24 hours with a qualification decision.</p>
+        <div className="ai-next-steps">
+          <h3>What happens next</h3>
+          <ol>
+            <li><strong>Initial screening</strong> — our team reviews intake for completeness.</li>
+            <li><strong>Qualification score</strong> — your case receives a signal-based score (0–100).</li>
+            <li><strong>Decision &amp; contact</strong> — we call or email within 24h with the result.</li>
+          </ol>
+        </div>
+        <button className="ai-btn ai-btn--sec" onClick={onReturn}>Return to ARKE</button>
+      </div>
+    </div>
+  );
+}
+
+/* ── Queue ───────────────────────────────────────────────── */
+const QueueData = {
+  sidebarSections: [
+    { label: "Queue", items: [
+      { id: "new", label: "New", count: 7 },
+      { id: "review", label: "In Review", count: 3 },
+      { id: "qualified", label: "Qualified", count: 12 },
+      { id: "declined", label: "Declined", count: 4 }
+    ]},
+    { label: "Operations", items: [
+      { id: "dashboard", label: "Dashboard", count: null },
+      { id: "decisions", label: "Decision Queue", count: 3 },
+      { id: "intakes", label: "All Intakes", count: 26 }
+    ]}
+  ],
+  cases: [
+    { id: "C-0146", name: "Maren K. Halloway", sub: "Workers' comp denial · carrier dispute", region: "Charleston, SC", score: 91, scoreBand: "high", status: "review", age: "2h" },
+    { id: "C-0145", name: "Devon Pritchard", sub: "Personal injury · truck collision, I-26", region: "Mt. Pleasant, SC", score: 84, scoreBand: "high", status: "new", age: "5h" },
+    { id: "C-0144", name: "Anika Boudreau", sub: "Med mal · misdiagnosis, post-surgical", region: "Summerville, SC", score: 76, scoreBand: "med", status: "new", age: "9h" },
+    { id: "C-0143", name: "R. Quentin Yoo", sub: "Premises liability · commercial slip", region: "North Charleston", score: 62, scoreBand: "med", status: "review", age: "1d" },
+    { id: "C-0142", name: "Solène Acheson", sub: "PI · cyclist struck, Lowcountry Hwy", region: "Goose Creek, SC", score: 58, scoreBand: "med", status: "new", age: "1d" },
+    { id: "C-0141", name: "James E. Tovar", sub: "Workers' comp · refused light duty", region: "Hanahan, SC", score: 41, scoreBand: "low", status: "new", age: "2d" },
+    { id: "C-0140", name: "Eleanor Mossback", sub: "Auto · rear-end, low-speed, soft tissue", region: "Charleston, SC", score: 28, scoreBand: "low", status: "declined", age: "2d" }
+  ]
+};
+
+function QueueShell({ active, onSelect, children }) {
+  return (
+    <div className="ai-shell">
+      <aside className="ai-sidebar">
+        <div className="ai-side-brand">
+          <div className="mark">◆</div>
+          <div className="word">ARKE</div>
+        </div>
+        {QueueData.sidebarSections.map(sec => (
+          <div key={sec.label}>
+            <div className="ai-side-section">{sec.label}</div>
+            {sec.items.map(it => (
+              <div
+                key={it.id}
+                className={"ai-side-link " + (active === it.id ? "is-active" : "")}
+                onClick={() => onSelect && onSelect(it.id)}
+              >
+                <span>{it.label}</span>
+                {it.count != null && <span className="ai-side-count">{it.count}</span>}
+              </div>
+            ))}
+          </div>
+        ))}
+        <div className="ai-side-footer">
+          OPERATOR · WENDY BRIEL<br/>
+          STATUS · OPERATIONAL<br/>
+          BRIELOS · v1
+        </div>
+      </aside>
+      <main className="ai-main">{children}</main>
+    </div>
+  );
+}
+
+function StatusBadge({ status }) {
+  const map = { new: "New", review: "In Review", qualified: "Qualified", declined: "Declined" };
+  return (
+    <span className={"ai-status ai-status--" + status}>
+      <span className="ai-status-dot"/>{map[status]}
+    </span>
+  );
+}
+
+function SignalScore({ score, band }) {
+  return (
+    <span className={"ai-score ai-score--" + band}>
+      <span className="ai-score-bar"><span className="ai-score-fill" style={{ width: score + "%" }}/></span>
+      {score}
+    </span>
+  );
+}
+
+function CaseTable({ cases, activeId, onPick }) {
+  return (
+    <div className="ai-cases">
+      <div className="ai-case-head">
+        <div>ID</div><div>Claimant · Matter</div><div>Region</div>
+        <div>Signal</div><div>Status</div><div style={{textAlign: 'right'}}>Age</div>
+      </div>
+      {cases.map(c => (
+        <div
+          key={c.id}
+          className={"ai-case-row " + (activeId === c.id ? "is-active" : "")}
+          onClick={() => onPick && onPick(c.id)}
+        >
+          <div className="ai-case-id">{c.id}</div>
+          <div>
+            <div className="ai-case-name">{c.name}</div>
+            <div className="ai-case-sub">{c.sub}</div>
+          </div>
+          <div className="ai-case-region">{c.region}</div>
+          <div className="ai-case-score-cell"><SignalScore score={c.score} band={c.scoreBand}/></div>
+          <div><StatusBadge status={c.status}/></div>
+          <div className="ai-case-age">{c.age}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function CaseDetail({ caseId, onBack }) {
+  const c = QueueData.cases.find(x => x.id === caseId) || QueueData.cases[0];
+  const breakdown = [
+    { k: "Urgency", v: 28, w: 30 },
+    { k: "Liability Clarity", v: 22, w: 25 },
+    { k: "Damages Potential", v: 24, w: 25 },
+    { k: "Recoverability", v: 17, w: 20 }
+  ];
+  return (
+    <>
+      <div className="ai-main-head">
+        <div>
+          <a className="ai-back" style={{color: 'var(--ether-gold)', marginBottom: 10, display: 'inline-block'}} onClick={onBack}>← Back to queue</a>
+          <h1 className="ai-main-title">{c.name}</h1>
+          <div className="ai-main-meta">{c.id} · {c.sub}</div>
+        </div>
+        <div className="ai-status-bar">
+          <div className="ai-stat">
+            <span className="ai-stat-value" style={{color: 'var(--ether-gold)'}}>{c.score}</span>
+            <span className="ai-stat-label">Signal</span>
+          </div>
+          <div className="ai-stat">
+            <span className="ai-stat-value">{c.age}</span>
+            <span className="ai-stat-label">Age</span>
+          </div>
+        </div>
+      </div>
+      <div className="ai-detail-grid">
+        <div className="ai-detail-card">
+          <h3>Case Substrate</h3>
+          <div className="ai-detail-row"><div className="ai-detail-key">Claimant</div><div className="ai-detail-val serif">{c.name}</div></div>
+          <div className="ai-detail-row"><div className="ai-detail-key">Region</div><div className="ai-detail-val">{c.region}</div></div>
+          <div className="ai-detail-row"><div className="ai-detail-key">Matter</div><div className="ai-detail-val">{c.sub}</div></div>
+          <div className="ai-detail-row"><div className="ai-detail-key">Filed</div><div className="ai-detail-val">05.20.2026  ·  {c.age} ago</div></div>
+          <div className="ai-detail-row"><div className="ai-detail-key">Status</div><div className="ai-detail-val"><StatusBadge status={c.status}/></div></div>
+          <div className="ai-detail-row"><div className="ai-detail-key">Distortion</div><div className="ai-detail-val">Carrier denied claim citing missed reporting window — claimant had documented continuing-care notes that should have extended the window. Substrate failure at intake side.</div></div>
+        </div>
+        <div className="ai-detail-card">
+          <h3>Signal Score · {c.score}/100</h3>
+          <div className="ai-score-headline">{c.score}<span>/100</span></div>
+          <div className="ai-score-block">
+            {breakdown.map(b => (
+              <div className="ai-score-line" key={b.k}>
+                <div className="ai-score-line-label"><span className="k">{b.k}</span><span className="v">{b.v}/{b.w}</span></div>
+                <div className="ai-score-line-bar"><div style={{ width: (b.v / b.w * 100) + "%" }}/></div>
+              </div>
+            ))}
+          </div>
+          <div style={{display: 'flex', flexDirection: 'column', gap: 8, marginTop: 14}}>
+            <button className="ai-btn" style={{background: 'var(--ether-gold)', borderColor: 'var(--ether-gold)', color: 'var(--obsidian-ink)'}}>Qualify Case →</button>
+            <button className="ai-btn ai-btn--sec" style={{borderColor: '#2B3137', color: '#B7B0A4'}}>Request More Signal</button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+/* ── App ─────────────────────────────────────────────────── */
+const { useState } = React;
+
+function IntakeScreen({ onSubmit, onBack }) {
+  return (
+    <div className="ai-screen ai-screen--vellum">
+      <IntakeHeader onBack={onBack}/>
+      <div className="ai-container">
+        <div className="ai-hero">
+          <span className="ai-eyebrow">ARKE | Law · Intake</span>
+          <h1 className="ai-title">Tell us about your case.</h1>
+          <p className="ai-subtitle">A short form, read by a real person. We'll respond within 24 hours — most often with a qualification decision, sometimes with a clarifying question first.</p>
+        </div>
+        <ExpectationsTimeline/>
+        <IntakeForm onSubmit={onSubmit}/>
+      </div>
+      <IntakeFooter/>
+    </div>
+  );
+}
+
+function ConfirmationScreen({ submission, onReturn }) {
+  return (
+    <div className="ai-screen ai-screen--vellum">
+      <IntakeHeader onBack={onReturn}/>
+      <div className="ai-container">
+        <Confirmation submission={submission} onReturn={onReturn}/>
+      </div>
+      <IntakeFooter/>
+    </div>
+  );
+}
+
+function QueueScreen({ onPickCase, onBack }) {
+  const [active, setActive] = useState("new");
+  const filtered = QueueData.cases.filter(c => {
+    if (active === "new") return c.status === "new";
+    if (active === "review") return c.status === "review";
+    if (active === "qualified") return c.status === "qualified";
+    if (active === "declined") return c.status === "declined";
+    return true;
+  });
+  const display = (filtered.length === 0 ? QueueData.cases : filtered);
+  const labels = { new: "New Intakes", review: "In Review", qualified: "Qualified", declined: "Declined", dashboard: "Operator Dashboard", decisions: "Decision Queue", intakes: "All Intakes" };
+  return (
+    <div className="ai-screen ai-screen--obsidian">
+      <QueueShell active={active} onSelect={setActive}>
+        <div className="ai-main-head">
+          <div>
+            <h1 className="ai-main-title">{labels[active] || "Queue"}</h1>
+            <div className="ai-main-meta">ARKE | Law · Charleston SC region · sprint day 03 / 30</div>
+          </div>
+          <div className="ai-status-bar">
+            <div className="ai-stat"><span className="ai-stat-value">{display.length}</span><span className="ai-stat-label">In View</span></div>
+            <div className="ai-stat"><span className="ai-stat-value" style={{color: 'var(--ether-gold)'}}>91</span><span className="ai-stat-label">Top Signal</span></div>
+            <div className="ai-stat"><span className="ai-stat-value">24h</span><span className="ai-stat-label">SLA</span></div>
+          </div>
+        </div>
+        <CaseTable cases={display} onPick={onPickCase}/>
+        <div style={{marginTop: 28, paddingTop: 18, borderTop: '1px solid #1F2429', display: 'flex', justifyContent: 'space-between'}}>
+          <span style={{fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.22em', color: '#6F7178', textTransform: 'uppercase'}}>END OF QUEUE · {display.length} OF {QueueData.cases.length}</span>
+          <a className="ai-back" style={{color: '#6F7178'}} onClick={onBack}>← Exit operator view</a>
+        </div>
+      </QueueShell>
+    </div>
+  );
+}
+
+function DetailScreen({ caseId, onBack }) {
+  return (
+    <div className="ai-screen ai-screen--obsidian">
+      <QueueShell active="new">
+        <CaseDetail caseId={caseId} onBack={onBack}/>
+      </QueueShell>
+    </div>
+  );
+}
+
+function App() {
+  const [screen, setScreen] = useState("intake");
+  const [submission, setSubmission] = useState(null);
+  const [activeCase, setActiveCase] = useState(null);
+  return (
+    <div className="ai-app">
+      {screen === "intake" && (
+        <IntakeScreen
+          onSubmit={(s) => { setSubmission(s); setScreen("confirm"); }}
+          onBack={() => setScreen("queue")}
+        />
+      )}
+      {screen === "confirm" && (
+        <ConfirmationScreen
+          submission={submission}
+          onReturn={() => setScreen("queue")}
+        />
+      )}
+      {screen === "queue" && (
+        <QueueScreen
+          onPickCase={(id) => { setActiveCase(id); setScreen("detail"); }}
+          onBack={() => setScreen("intake")}
+        />
+      )}
+      {screen === "detail" && (
+        <DetailScreen
+          caseId={activeCase}
+          onBack={() => setScreen("queue")}
+        />
+      )}
+      <div style={{
+        position: 'fixed', bottom: 16, right: 16, zIndex: 999,
+        background: 'rgba(17,19,21,0.92)', color: '#F4F1EA',
+        padding: '10px 14px', display: 'flex', gap: 12,
+        border: '1px solid #2B3137', fontFamily: 'var(--font-mono)',
+        fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase',
+        backdropFilter: 'blur(8px)'
+      }}>
+        <span style={{color: '#6F7178'}}>Click-through</span>
+        {["intake","confirm","queue","detail"].map(s => (
+          <a key={s}
+             onClick={() => setScreen(s)}
+             style={{cursor:'pointer', color: screen === s ? 'var(--ether-gold)' : '#B7B0A4'}}>
+            {s === "intake" ? "1 · Intake" : s === "confirm" ? "2 · Confirm" : s === "queue" ? "3 · Queue" : "4 · Case"}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>
